@@ -1,8 +1,8 @@
-## Feature description
+## Feature/Bug description
 
 ## Areas affected
 
-## Code changes
+## Code changes/Solution
 
 ## Any existing behavior change due to this code change
 
