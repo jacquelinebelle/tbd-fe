@@ -1,0 +1,16 @@
+form {
+  align-items: center;
+  border: solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-around;
+  padding: 10px auto;
+  width: 50%;
+}
+
+.form-btn {
+  height: 35px;
+  width: 190px;
+}
