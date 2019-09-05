@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { getJobs } from '../../api/jobCalls';
 import './Form.scss'
 
 class Form extends Component {
@@ -18,8 +19,10 @@ class Form extends Component {
     })
   }
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
+    const jobs = await getJobs(this.state);
+    console.log(jobs)
   }
 
   render() {
