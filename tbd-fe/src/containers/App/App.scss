@@ -1,5 +1,19 @@
+@import-normalize;
+@import '../../assets/variables.scss';
+
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    box-sizing: border-box;
+    font-family: $primary-font;
+    font-weight: $primary-weight;
+    button {
+        font-weight: $primary-weight;
+    }
+}
+
+h1 {
+    font-weight: $large-text-weight;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    margin: 20px auto;
+    width: 30px;
 }
