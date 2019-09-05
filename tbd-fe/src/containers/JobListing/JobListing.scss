@@ -1,0 +1,43 @@
+@import '../../assets/variables.scss';
+
+.job {
+    box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.1);
+    height: 421px;
+    margin-bottom: 20px;
+    padding: 20px;
+    font-size: $small-text;
+    width: 300px;
+    * {
+        margin: 8.5px 0;
+    }
+}
+
+.job-date {
+    font-size: 14px;
+    font-weight: $large-text-weight;
+    text-align: center;
+}
+
+.job-title {
+    color: $secondary-dark;
+    font-size: 24px;
+    font-weight: $large-text-weight;
+    margin: 12px 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+.job-location,
+.job-salary,
+.job-type {
+    font-size: 19px;
+    font-weight: $large-text-weight;
+}
+
+.job-company {
+    margin-top: 28px;
+}
+
+.job-description {
+    line-height: 24px;
+}

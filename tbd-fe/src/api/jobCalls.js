@@ -17,6 +17,6 @@ export const getJobs = async query => {
         const jobs = await res.json();
         return jobs;
     } catch (error) {
-        throw new Error('Error fetching job listings', error)
+        throw new Error('Error fetching job listings')
     } 
 }

@@ -27,7 +27,7 @@ class Form extends Component {
 
   render() {
     const { keywords, location, radius, salary } = this.state;
-    return(
+    return (
       <form 
         className="search-form"
         onChange={this.handleChange}>
