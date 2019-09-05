@@ -21,8 +21,7 @@ class Form extends Component {
     })
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async () => {
     const jobs = await getJobs(this.state);
     console.log(jobs)
     this.props.setJobs(await jobs)
@@ -63,9 +62,13 @@ class Form extends Component {
             name='radius' 
             value={radius} />
         </label>
-        <button className='form-btn' onClick={(e) => this.handleSubmit(e)}>Submit</button>
         <Link to="/results">
-          Jobs
+        <button 
+          className='form-btn' 
+          onClick={this.handleSubmit}
+          >
+            Submit
+        </button>
         </Link>
       </form>
     )
