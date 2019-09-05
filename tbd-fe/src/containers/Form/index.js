@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { getJobs } from '../../api/jobCalls';
 import './Form.scss'
-
+import { gatherJobs } from '../../actions/'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 class Form extends Component {
   constructor() {
     super();
@@ -19,10 +21,11 @@ class Form extends Component {
     })
   }
 
-  handleSubmit = async e => {
-    e.preventDefault();
+  handleSubmit = async () => {
     const jobs = await getJobs(this.state);
     console.log(jobs)
+    this.props.setJobs(await jobs)
+
   }
 
   render() {
@@ -59,10 +62,21 @@ class Form extends Component {
             name='radius' 
             value={radius} />
         </label>
-        <button className='form-btn' onClick={this.handleSubmit}>Submit</button>
+        <Link to="/results">
+        <button 
+          className='form-btn' 
+          onClick={this.handleSubmit}
+          >
+            Submit
+        </button>
+        </Link>
       </form>
     )
   }
 }
 
-export default Form;
+export const mapDispatchToProps = dispatch => ({
+  setJobs: (jobs) => dispatch(gatherJobs(jobs))
+})
+
+export default connect(null, mapDispatchToProps)(Form);

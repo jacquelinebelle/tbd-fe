@@ -7,6 +7,8 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './reducers';
 import App from './containers/App/App';
+// export const electron = window.require("electron")
+
 
 const store = createStore(
     rootReducer,
@@ -21,4 +23,4 @@ const store = createStore(
     </Provider>
   )
   
- ReactDOM.render(router, document.getElementById('root'));
+ReactDOM.render(router, document.getElementById('root'));
