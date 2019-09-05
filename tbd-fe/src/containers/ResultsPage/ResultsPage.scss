@@ -1,0 +1,19 @@
+.results-page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.job {
+    grid-column-start: 0;
+    margin-left: 100px;
+}
+
+.city-preview {
+    box-shadow: 0.5px 1px 5px rgba(0, 0, 0, 0.1);
+    grid-column-start: 1;
+    height: 380px;
+    margin: 0 100px 20px;
+    list-style: none;
+    width: 481px;
+}

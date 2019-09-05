@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import 'normalize.css';
-import './App.scss';
+import { Route, Switch } from 'react-router-dom';
 import Form from '../Form';
+import ResultsPage from '../ResultsPage';
+import './App.scss';
 
 class App extends Component {
 
@@ -12,7 +13,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>tbd</h1>
-        <Form />
+        <Switch>
+          <Route exact path='/' render={ () => <Form /> } />
+          <Route exact path='/results' render={ () => <ResultsPage /> } />
+        </Switch>
+
       </div>
     )
   }
