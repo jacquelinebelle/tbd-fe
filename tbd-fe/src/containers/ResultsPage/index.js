@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import listings from './fakeListings';
+// import listings from './fakeListings';
 import JobListing from '../JobListing';
 import './ResultsPage.scss';
 

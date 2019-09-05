@@ -7,6 +7,6 @@
 ## Any existing behavior change due to this code change
 
 ## Covered by unit tests?
-[x] yes
-[ ] no
+[ ] yes
+[X] no
 [ ] only manual testing applicable
