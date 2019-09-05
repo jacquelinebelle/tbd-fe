@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Form.scss'
+import { fetchJobs } from '../../apiCalls';
 
 class Form extends Component {
   constructor() {
@@ -18,20 +19,61 @@ class Form extends Component {
     })
   }
 
+  handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log()
+    const jobs = await fetchJobs(this.state)
+    console.log(jobs)
+    this.props.setJobs(await jobs)
+  }
+
   render() {
     const { keywords, location, radius, salary } = this.state;
     return(
       // <section className='form-section'>
-        <form onChange={e => this.handleChange(e)}>
-          <label>Job Title / Keywords</label>
-          <input name='keywords' value={keywords}></input>
-          <label>Location</label>
-          <input name='location' value={location}></input>
-          <label>Search Radius from Location</label>
-          <input name='radius' value={radius}></input>
-          <label >Desired Salary</label>
-          <input name='salary' value={salary}></input>
-          <button className='form-btn'>Submit</button>
+        <form 
+          onChange={e => this.handleChange(e)}
+        >
+          <label for="keywords_input" >
+            Job Title / Keywords
+          </label>
+          <input 
+            id="keywords_input"
+            name='keywords' 
+            value={keywords}
+          />
+          <label for="location_input">
+            Location
+          </label>
+          <input 
+            id="location_input"
+            name='location' 
+            value={location}
+          />
+          <label for="radius_input">
+            Search Radius from Location
+          </label>
+          <input
+            id="radius_input"
+            name='radius' 
+            value={radius}
+            type="number"
+          />
+          <label for="salary_input">
+            Desired Salary
+          </label>
+          <input
+            id="salary_input"
+            name='salary' 
+            value={salary}
+            type="number"
+          />
+          <button 
+            className='form-btn' 
+            onClick={(e) => this.handleSubmit(e)}
+          >
+            Submit
+          </button>
         </form>
       // {/* </section> */}
     )
