@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 export class ResultsPage extends Component {
 
     displayJobs = () => {
+        console.log('jerbs?', this.props.jobs)
         return this.props.jobs.map(job => {
             return <JobListing
                 lastModified={job.updated}
@@ -39,4 +40,4 @@ export const mapStateToProps = ({ jobs }) => ({
     jobs
 })
 
-export default connect(ResultsPage);
+export default connect(mapStateToProps)(ResultsPage);

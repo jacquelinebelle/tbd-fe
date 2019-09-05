@@ -15,20 +15,20 @@ constructor() {
 
   render() {
     return (
-      <div className="App">
-        <h1>tbd</h1>
-        <Switch>
+      <Switch>
+        <div className="App">
+          <h1>tbd</h1>
           <Route 
             exact path='/' 
             render={ () => <Form/> } 
           />
           <Route 
             exact path='/results' 
-            render={ () => <ResultsPage jobs={this.state.jobs}/> } 
+            component={ResultsPage} 
           />
-        </Switch>
 
-      </div>
+        </div>
+      </Switch>
     )
   }
 }

@@ -3,6 +3,7 @@ import { getJobs } from '../../api/jobCalls';
 import './Form.scss'
 import { gatherJobs } from '../../actions/'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 class Form extends Component {
   constructor() {
     super();
@@ -25,7 +26,7 @@ class Form extends Component {
     const jobs = await getJobs(this.state);
     console.log(jobs)
     this.props.setJobs(await jobs)
-    
+
   }
 
   render() {
@@ -63,6 +64,9 @@ class Form extends Component {
             value={radius} />
         </label>
         <button className='form-btn' onClick={(e) => this.handleSubmit(e)}>Submit</button>
+        <Link to="/results">
+          Jobs
+        </Link>
       </form>
     )
   }
