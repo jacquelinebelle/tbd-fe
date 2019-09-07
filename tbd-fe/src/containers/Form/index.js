@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getJobs } from '../../api/jobCalls';
+// import { getJobs } from '../../api/jobCalls';
+import { jobsThunk } from '../../thunks/jobsThunk';
 import './Form.scss';
 import { gatherJobs } from '../../actions';
 import { connect } from 'react-redux'
@@ -14,8 +15,9 @@ class Form extends Component {
   }
 
   handleSubmit = async () => {
-    const jobs = await getJobs(this.state);
-    this.props.setJobs(await jobs);
+    this.props.jobsThunk(this.state);
+    // const jobs = await getJobs(this.state);
+    // this.props.setJobs(await jobs);
   }
 
   render() {
@@ -65,7 +67,7 @@ class Form extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  setJobs: (jobs) => dispatch(gatherJobs(jobs))
-})
+  jobsThunk: params => dispatch(jobsThunk(params))
+});
 
 export default connect(null, mapDispatchToProps)(Form);

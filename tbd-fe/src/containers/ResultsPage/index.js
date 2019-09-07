@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import listings from './fakeListings';
 import JobListing from '../JobListing';
 import { connect } from 'react-redux';
-import { getJobs } from '../../api/jobCalls';
-import { getCityDetails } from '../../api/cityCalls';
+import { cityThunk } from '../../thunks/cityThunk';
+// import { getCityDetails } from '../../api/cityCalls';
 import { gatherCities } from '../../actions';
 import './ResultsPage.scss';
 
@@ -17,16 +17,14 @@ export class ResultsPage extends Component {
 
     componentDidUpdate = async () => {
         const cities = await this.getCities(this.props.jobs);
-        const cityDetails = await Promise.all(cities.map(city => {
-            return getCityDetails(city);
-        }))
-        console.log(cityDetails)
+        this.props.cityThunk(cities);
+        // console.log(cityDetails)
     }
+    
 
     getCities = (jobs) => {
         return jobs.reduce((acc, job) => {
             if (!acc.includes(job.location)) {
-                console.log(job.location);
                 acc.push(job.location)
                 // this.state.cities.push(job.location);
             }
@@ -64,8 +62,12 @@ export class ResultsPage extends Component {
     }
 }
 
+export const mapDispatchToProps = dispatch => ({
+    cityThunk: cities => dispatch(cityThunk(cities))
+  });
+
 export const mapStateToProps = ({ jobs }) => ({
     jobs
 })
 
-export default connect(mapStateToProps)(ResultsPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);

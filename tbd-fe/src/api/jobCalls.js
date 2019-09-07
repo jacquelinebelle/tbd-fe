@@ -8,7 +8,6 @@ export const getJobs = async (linkParams) => {
                 ...linkParams
             },
         }
-        console.log(options)
         const response = await fetch(serverUrl, options)
         const results = await response.json()
         console.log(results)
