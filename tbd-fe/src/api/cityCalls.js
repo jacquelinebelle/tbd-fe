@@ -1,18 +1,16 @@
-export const getJobs = async (linkParams) => {
-    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/listings?'
+export const getCityDetails = async (city) => {
+    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/urban_area/details'
     try {
         const options = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                ...linkParams
+                location: city
             },
         }
-        console.log(options)
         const response = await fetch(serverUrl, options)
         const results = await response.json()
-        console.log(results)
-        return results.jobs
+        return results;
     } catch (error) {
         throw Error(error.message)
     }
