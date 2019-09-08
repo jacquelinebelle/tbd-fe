@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import JobListing from '../../components/JobListing';
 import CityPreview from '../../components/CityPreview';
 import { connect } from 'react-redux';
-import { cityThunk } from '../../thunks/cityThunk';
+import { scoreThunk } from '../../thunks/cityThunks';
 // import { getCityDetails } from '../../api/cityCalls';
 // import { gatherCities } from '../../actions';
 import loading from '../../assets/loading.gif';
@@ -20,7 +20,7 @@ export class ResultsPage extends Component {
     componentDidUpdate = async () => {
         if (!this.props.cities.length) {
             const cities = await this.getCities(this.props.jobs);
-            this.props.cityThunk(cities);
+            this.props.scoreThunk(cities);
         }
     }
     
@@ -35,15 +35,40 @@ export class ResultsPage extends Component {
     }
 
     displayCities = () => {
+        console.log(this.getRank())
         if (this.props.cities.length) {
             return this.props.cities.reduce((acc, city) => {
                 if (!city.message) {
-                    acc.push(<CityPreview />)
+                    acc.push(
+                    <CityPreview 
+                        name={city.city}
+                        img={city.web}
+                        housing={city.categories[0].score_out_of_10}
+                        safety={city.categories[7].score_out_of_10}
+                        healthcare={city.categories[8].score_out_of_10}
+                        tolerance={city.categories[15].score_out_of_10}
+                        rank={this.getRank(city)}
+                    />)
                         
                 }
                 return acc
             }, []);
         }
+    }
+
+    getRank = (city) => {
+        console.log(city)
+        if (!city) {
+            return;
+        }
+
+        let scores = this.props.cities.map(city => {
+            return city.teleport_city_score;
+        });
+        let sortedScores = scores.filter(score => score).sort();
+
+        let index = sortedScores.findIndex(score => score === city.teleport_city_score);
+        return `${index + 1}/${sortedScores.length}`;
     }
 
     displayJobs = () => {
@@ -78,7 +103,7 @@ export class ResultsPage extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-    cityThunk: cities => dispatch(cityThunk(cities))
+    scoreThunk: cities => dispatch(scoreThunk(cities))
   });
 
 export const mapStateToProps = ({ jobs, cities, loading, error }) => ({

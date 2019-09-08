@@ -33,3 +33,21 @@ export const getCityImages = async (city) => {
         throw Error(error.message)
     }
 }
+
+export const getCityScores = async (city) => {
+    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/urban_area/scores'
+    try {
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                location: city
+            },
+        }
+        const response = await fetch(serverUrl, options)
+        const results = await response.json()
+        return {city: city, ...results};
+    } catch (error) {
+        throw Error(error.message)
+    }
+}
