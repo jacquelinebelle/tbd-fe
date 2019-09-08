@@ -15,18 +15,19 @@ describe('getJobs', () => {
       });
     });
 
-    it('should be called with correct URL', () => {
-      const expected = 'https://radiant-peak-49102.herokuapp.com/api/v1/listings?&keywords=busy';
+    it('should be called with correct URL and headers', () => {
+      const expected = ['https://radiant-peak-49102.herokuapp.com/api/v1/listings?', {"headers": {"Content-Type": "application/json", "keywords": "busy"}, "method": 
+      "GET"}];
 
       getJobs(mockQuery);
 
-      expect(window.fetch).toHaveBeenCalledWith(expected);
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
     });
 
-    it('HAPPY: should return a parsed response', async () => {
+    it.skip('HAPPY: should return a parsed response', async () => {
       const result = await getJobs(mockQuery);
 
-      expect(result).toEqual(mockJobs);
+      await expect(result).toEqual(mockJobs);
     });
 
     it('SAD: should return an error if status is not ok', () => {
@@ -36,16 +37,16 @@ describe('getJobs', () => {
         })
       });
 
-      expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching job listings'));
+      expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching jobs'));
     });
 
     it('SAD: should return an error if promise rejects', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.reject({
-          message: 'Error fetching job listings'
+          message: 'Error fetching jobs'
         })
       });
 
-      expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching job listings'));
+      expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching jobs'));
     });
   });

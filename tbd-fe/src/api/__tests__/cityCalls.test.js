@@ -1,51 +1,51 @@
-// import { getCityDetails } from '../jobCalls';
+import { getCityDetails } from '../cityCalls';
 
-// describe('getJobs', () => {
-//     let mockJobs, mockQuery;
+describe('getCityDetails', () => {
+    let mockCityDetails, mockQuery;
 
-//     beforeEach(() => {
-//       mockQuery = { keywords: 'busy' }
-//       mockJobs = [{ title: 'valet' }];
+    beforeEach(() => {
+      mockQuery = 'Denver, CO'
+      mockCityDetails = { city: 'Denver, CO' };
 
-//       window.fetch = jest.fn().mockImplementation(() => {
-//         return Promise.resolve({
-//           ok: true,
-//           json: () => Promise.resolve(mockJobs)
-//         });
-//       });
-//     });
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockCityDetails)
+        });
+      });
+    });
 
-//     it('should be called with correct URL', () => {
-//       const expected = 'https://radiant-peak-49102.herokuapp.com/api/v1/listings?&keywords=busy';
+    it('should be called with correct URL and headers', () => {
+      const expected = ['https://radiant-peak-49102.herokuapp.com/api/v1/urban_area/details', {"headers": {"Content-Type": "application/json", "location": "Denver, CO"}, "method": "GET"}];
 
-//       getJobs(mockQuery);
+      getCityDetails(mockQuery);
 
-//       expect(window.fetch).toHaveBeenCalledWith(expected);
-//     });
+      expect(window.fetch).toHaveBeenCalledWith(...expected);
+    });
 
-//     it('HAPPY: should return a parsed response', async () => {
-//       const result = await getJobs(mockQuery);
+    it('HAPPY: should return a parsed response', async () => {
+      const result = await getCityDetails(mockQuery);
 
-//       expect(result).toEqual(mockJobs);
-//     });
+      expect(result).toEqual(mockCityDetails);
+    });
 
-//     it('SAD: should return an error if status is not ok', () => {
-//       window.fetch = jest.fn().mockImplementation(() => {
-//         return Promise.resolve({
-//           ok: false
-//         })
-//       });
+    it('SAD: should return an error if status is not ok', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: false
+        })
+      });
 
-//       expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching job listings'));
-//     });
+      expect(getCityDetails(mockQuery)).rejects.toEqual(Error('Error fetching city details'));
+    });
 
-//     it('SAD: should return an error if promise rejects', () => {
-//       window.fetch = jest.fn().mockImplementation(() => {
-//         return Promise.reject({
-//           message: 'Error fetching job listings'
-//         })
-//       });
+    it('SAD: should return an error if promise rejects', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.reject({
+          message: 'Error fetching city details'
+        })
+      });
 
-//       expect(getJobs(mockQuery)).rejects.toEqual(Error('Error fetching job listings'));
-//     });
-//   });
+      expect(getCityDetails(mockQuery)).rejects.toEqual(Error('Error fetching city details'));
+    });
+  });

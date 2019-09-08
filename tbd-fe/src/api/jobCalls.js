@@ -9,8 +9,10 @@ export const getJobs = async (linkParams) => {
             },
         }
         const response = await fetch(serverUrl, options)
+        if (!response.ok) {
+            throw new Error('Error fetching jobs')
+        }
         const results = await response.json()
-        console.log(results)
         return results.jobs
     } catch (error) {
         throw Error(error.message)
