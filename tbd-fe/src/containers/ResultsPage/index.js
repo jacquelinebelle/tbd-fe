@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 // import listings from './fakeListings';
-import JobListing from '../JobListing';
+import JobListing from '../../components/JobListing';
+import CityPreview from '../../components/CityPreview';
 import { connect } from 'react-redux';
 import { cityThunk } from '../../thunks/cityThunk';
 // import { getCityDetails } from '../../api/cityCalls';
-import { gatherCities } from '../../actions';
+// import { gatherCities } from '../../actions';
+import loading from '../../assets/loading.gif';
 import './ResultsPage.scss';
 
 export class ResultsPage extends Component {
@@ -16,9 +18,11 @@ export class ResultsPage extends Component {
     }
 
     componentDidUpdate = async () => {
-        const cities = await this.getCities(this.props.jobs);
-        this.props.cityThunk(cities);
-        // console.log(cityDetails)
+        if (!this.props.cities.length) {
+            console.log('update')
+            const cities = await this.getCities(this.props.jobs);
+            this.props.cityThunk(cities);
+        }
     }
     
 
@@ -26,10 +30,21 @@ export class ResultsPage extends Component {
         return jobs.reduce((acc, job) => {
             if (!acc.includes(job.location)) {
                 acc.push(job.location)
-                // this.state.cities.push(job.location);
             }
             return acc;
         }, []);
+    }
+
+    displayCities = () => {
+        if (this.props.cities.length) {
+            return this.props.cities.reduce((acc, city) => {
+                if (!city.message) {
+                    acc.push(<CityPreview />)
+                        
+                }
+                return acc
+            }, []);
+        }
     }
 
     displayJobs = () => {
@@ -51,12 +66,13 @@ export class ResultsPage extends Component {
     render() {
         return (
             <main className="results-page">
-                <ul className="job-list">
+                <section className="job-list">
                     {this.displayJobs()}
-                </ul>
-                <ul className="city-list">
-                    
-                </ul>
+                </section>
+                <section className="city-list">
+                    {this.props.loading && <img src={loading} />}
+                   {!this.props.loading && this.displayCities()}
+                </section>
             </main>
         )
     }
@@ -66,8 +82,11 @@ export const mapDispatchToProps = dispatch => ({
     cityThunk: cities => dispatch(cityThunk(cities))
   });
 
-export const mapStateToProps = ({ jobs }) => ({
-    jobs
+export const mapStateToProps = ({ jobs, cities, loading, error }) => ({
+    jobs,
+    cities,
+    loading,
+    error
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResultsPage);

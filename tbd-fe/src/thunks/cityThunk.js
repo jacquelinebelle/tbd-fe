@@ -6,7 +6,6 @@ export const cityThunk = (locations) => {
         try {
             dispatch(isLoading(true));
             const cities = await Promise.all(locations.map(city => {
-                console.log(city)
                 return getCityDetails(city);
             }));
             dispatch(isLoading(false));
