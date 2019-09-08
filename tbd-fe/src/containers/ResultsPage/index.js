@@ -19,7 +19,6 @@ export class ResultsPage extends Component {
 
     componentDidUpdate = async () => {
         if (!this.props.cities.length) {
-            console.log('update')
             const cities = await this.getCities(this.props.jobs);
             this.props.cityThunk(cities);
         }
