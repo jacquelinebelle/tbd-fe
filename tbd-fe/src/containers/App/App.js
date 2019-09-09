@@ -3,7 +3,7 @@ import { Route, Switch, Link } from 'react-router-dom';
 import ResultsPage from '../ResultsPage';
 import './App.scss';
 import Form from '../Form/';
-import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
+// import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
 class App extends Component {
 constructor() {
@@ -17,6 +17,7 @@ constructor() {
     return (
       <Switch>
         <div className="App">
+          <img src='https://wallpapercave.com/wp/wp3594884.jpg' className='result-background'/>
           <Link to='/'>
             <h1>tbd</h1>
           </Link>

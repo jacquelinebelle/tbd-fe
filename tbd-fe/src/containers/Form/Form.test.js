@@ -1,6 +1,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
-import Form from './index'
+import {Form, mapDispatchToProps} from './index';
+
 
 describe("Form", () => {
   let wrapper;
@@ -13,13 +14,6 @@ describe("Form", () => {
 
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
-
-  it('state should start with empty strings as default', () => {
-    expect(wrapper.state().keywords).toBe('')
-    expect(wrapper.state().location).toBe('')
-    expect(wrapper.state().radius).toBe('')
-    expect(wrapper.state().salary).toBe('')
   })
 
   it('should update state when user types in form fields', () => {
@@ -57,4 +51,5 @@ describe("Form", () => {
     })
     expect(wrapper.state().radius).toEqual(newValue)
   })
+
 })

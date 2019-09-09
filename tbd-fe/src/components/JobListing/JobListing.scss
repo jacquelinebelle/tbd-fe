@@ -1,12 +1,13 @@
 @import '../../assets/variables.scss';
 
 .job {
-    box-shadow: 1px 1px 8px #B2D1E4;
-    height: 421px;
+    background-color: white;
+    box-shadow: 7px 7px 8px #B2D1E4;
+    height: 270px;
     margin-bottom: 20px;
     padding: 20px;
     font-size: $small-text;
-    width: 300px;
+    width: 40%;
     * {
         margin: 8.5px 0;
     }

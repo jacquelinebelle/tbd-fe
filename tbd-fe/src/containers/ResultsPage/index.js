@@ -93,10 +93,10 @@ export class ResultsPage extends Component {
                 <section className="job-list">
                     {this.displayJobs()}
                 </section>
-                <section className="city-list">
+                {/* <section className="city-list">
                     {this.props.loading && <img src={loading} />}
                    {!this.props.loading && this.displayCities()}
-                </section>
+                </section> */}
             </main>
         )
     }

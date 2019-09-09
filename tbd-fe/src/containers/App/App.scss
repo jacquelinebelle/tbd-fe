@@ -18,3 +18,9 @@ h1 {
     margin: 20px auto;
     width: 30px;
 }
+
+.result-background {
+    position: absolute;
+    opacity: .6;
+    z-index: -10;
+}
