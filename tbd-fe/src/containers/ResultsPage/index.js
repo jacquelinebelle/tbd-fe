@@ -13,7 +13,7 @@ export class ResultsPage extends Component {
     constructor() {
         super();
         this.state = {
-            // cities: []
+            loading: false
         }
     }
 

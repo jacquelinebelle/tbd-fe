@@ -1,0 +1,21 @@
+header {
+  align-items: center;
+  background-color: #faf9f5;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding: 10px 50px;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+.logo-img {
+  width: 40%;
+  min-height: 32px;
+  min-width: 169px;
+}
