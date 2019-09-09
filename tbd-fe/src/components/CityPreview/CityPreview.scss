@@ -1,0 +1,67 @@
+@import '../../assets/variables.scss';
+
+.city-preview {
+    box-shadow: 1px 1px 8px #B2D1E4;
+    grid-column-start: 1;
+    height: 384px;
+    margin-bottom: 32px;
+    position: relative;
+    width: 512px;
+}
+
+.preview-img {
+    height: 113px;
+    opacity: 0.5;
+}
+
+.preview-info {
+    padding: 8px 32px;
+}
+
+.name-rank {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-weight: $large-text-weight;
+    justify-content: space-between;
+}
+
+.preview-name, .rank {
+    margin: 0 0 8px 0;
+}
+
+.preview-name {
+    font-size: 32px;
+    font-weight: $large-text-weight;
+}
+
+.rank {
+    font-size: 24px;
+}
+
+.preview-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 32px);
+    font-size: 16px;
+    position: absolute;
+    top: 200px;
+    width: 450px;
+}
+
+.table-headers,
+.table-row {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 32px;
+}
+
+.table-header {
+    font-weight: 300;
+}
+
+.row-header {
+    font-weight: $large-text-weight;
+}
+
