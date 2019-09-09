@@ -5,7 +5,7 @@ import './Form.scss';
 import { gatherJobs } from '../../actions';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-class Form extends Component {
+export class Form extends Component {
 
 
   handleChange = e => {

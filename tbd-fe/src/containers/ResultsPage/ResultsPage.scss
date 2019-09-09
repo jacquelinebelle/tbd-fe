@@ -1,10 +1,8 @@
-.results-page {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+.job-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.job {
-    grid-column-start: 0;
-    margin-left: 100px;
-}
+
+
