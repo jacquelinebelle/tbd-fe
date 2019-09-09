@@ -52,10 +52,4 @@ describe("Form", () => {
     expect(wrapper.state().radius).toEqual(newValue)
   })
 
-  describe('mapDispatchToProps', () => {
-    it('should retrun a list of parameters', () => {
-      const mockState = { params: { keywords: 'test'}}
-      const 
-    })
-  })
 })
