@@ -1,20 +1,15 @@
-// const makeParameters = query => {
-//     return Object.keys(query).reduce((parameters, field) => {   
-//         if (query[field]) {
-//             parameters = parameters + `&${field}=${query[field]}`;
-//         }
-//         return parameters;
-//     }, '')
-// }
 export const getJobs = async (linkParams) => {
-    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/listings?'
+    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/listings'
     try {
+        const test = {
+            "Content-Type" : "application/json",
+            ...linkParams
+        }
+        
+        let  headers = JSON.stringify(test)
         const options = {
             method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                ...linkParams
-            },
+            headers
         }
         console.log(options)
         const response = await fetch(serverUrl, options)

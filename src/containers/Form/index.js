@@ -8,10 +8,10 @@ class Form extends Component {
   constructor() {
     super();
     this.state = {
-      keywords: '',
-      location: '',
-      radius: '',
-      salary: ''
+      keywords: "",
+      location: "",
+      radius: "",
+      salary: ""
     }
   }
 
@@ -25,7 +25,6 @@ class Form extends Component {
     const jobs = await getJobs(this.state);
     console.log(jobs)
     this.props.setJobs(await jobs)
-
   }
 
   render() {
@@ -38,14 +37,15 @@ class Form extends Component {
           <input 
             className="form-input keyword-input"
             type="text"
+            required
             name='keywords' 
             value={keywords} />
         </label>
         <label className="search-label">Desired Salary
           <input 
             className="form-input salary-input"
-            type="text"
-            name='salary' 
+            type="number"
+            name='salary'
             value={salary} />
         </label>
         <label className="search-label">Location

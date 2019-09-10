@@ -3,7 +3,6 @@ import { Route, Switch } from 'react-router-dom';
 import ResultsPage from '../ResultsPage';
 import './App.scss';
 import Form from '../Form/';
-import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
 class App extends Component {
 constructor() {
