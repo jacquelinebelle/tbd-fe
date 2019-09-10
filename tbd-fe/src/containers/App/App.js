@@ -6,7 +6,7 @@ import Form from '../Form/';
 import Header from '../Header';
 // import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
-class App extends Component {
+export class App extends Component {
 constructor() {
   super()
   this.state={
