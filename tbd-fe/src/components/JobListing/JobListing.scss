@@ -40,5 +40,13 @@
 }
 
 .job-description {
+    height: 95px;
     line-height: 24px;
+    overflow: hidden;
 }
+
+@media screen and (max-width: 850px) {
+    .job {
+        width: 85%;
+    }
+  }
