@@ -1,14 +1,17 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import {Form, mapDispatchToProps} from './index';
+import { jobsThunk } from '../../thunks/jobsThunk';
 
 
 describe("Form", () => {
   let wrapper;
+  let mockJobsThunk; 
 
   beforeEach(function() {
+    mockJobsThunk = jest.fn()
     wrapper = shallow(
-      <Form />
+      <Form jobsThunk={mockJobsThunk}/>
     )
   })
 
@@ -52,4 +55,13 @@ describe("Form", () => {
     expect(wrapper.state().radius).toEqual(newValue)
   })
 
+  describe('mapDispathToProps', () => {
+    it('should call JobThunk when dispatch', () => {
+      const mockDispatch = jest.fn();
+      const mockState = {keywords: 'developer'}
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.jobsThunk(mockState)
+      expect(mockDispatch).toHaveBeenCalled();
+    })
+  })
 })
