@@ -1,19 +1,21 @@
-# Compass
+# Compass ([Live Site](https://master.d1unm2lt3lovzm.amplifyapp.com/))
+
 
 ## Team Members
-Back End Team
-### [David Hardy](http://www.github.com/davehardy632)
-### [Patrick Goulding](http://www.github.com/pgoulding)
-Front End Team
-### [Jacqueline Moore](http://www.github.com/jacquelinebelle)
-### [De'Marcus Kirby](http://www.github.com/KirbyDD)
-
-## Live Version
+| Name | Github | Team |
+|:----------------:|:----------------------------------:|:----------:|
+| David Hardy | https://github.com/davehardy632 | Back End |
+| DeMarcus Kirby | https://github.com/KirbyDD | Front End |
+| Jacqueline Moore | https://github.com/jacquelinebelle | Front End |
+| Patrick Goulding | https://github.com/pgoulding | Full Stack |
 
 
 ## Description
 
-This project is a simple site, built with React and Redux, that provides Job Listings and a high degree of city information. The user may enter a job title, keywords, or location and receive a listing of jobs. Clicking on the job listing will provide information about the major city nearest to its location. The user will be provided with different urban area scores, details, and salaries.
+This project was built for someone on the job market and considering moving to a new location. As a user you can search for jobs by Title, *(optionally specifying a city)*, along with their salary requirements and the max distance away from the location they're searching, and return recent job listings. If the User is  interested in the Job, they can see more details about that Job and the detailed data on the closest urban area with scores for general city score, detailed city scores, and salaries from the city in which they are applying.
+
+This project was built with React, Redux as a PWA and Desktop site. 
+Tested with Jest/Mocha/Travis CI.
 
 ## Setup
 
