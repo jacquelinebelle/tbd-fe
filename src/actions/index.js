@@ -17,3 +17,14 @@ export const gotError = (message) => ({
   type: 'GOT_ERROR',
   message
 });
+
+export const login = (loginInfo) => ({
+  type: 'LOGIN',
+  loginInfo
+})
+
+export const logout = (email) => ({
+  type: 'LOGOUT',
+  email
+})
+
