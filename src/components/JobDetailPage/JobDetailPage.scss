@@ -95,6 +95,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(6, 1fr);
     grid-column-gap: 8px;
+
 }
 
 .detail-label {
@@ -108,6 +109,13 @@
     p {
         margin: 0;
     }
+}
+
+
+.true-label {
+    min-height: 200px;
+    width: 800px;
+    margin: 0 auto;
 }
 
 .detail-label:hover {

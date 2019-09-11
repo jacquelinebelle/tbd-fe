@@ -9,9 +9,7 @@ export const cityThunk = (city) => {
             let scores = await getCityScores(city);
             let cityObject = {...image, ...scores}
             dispatch(isLoading(false));
-            console.log(cityObject)
             dispatch(setCurrentCity(cityObject));
-            // this.setState({ city: cityObject })
         } catch (error) {
         dispatch(gotError(error.message));
       }

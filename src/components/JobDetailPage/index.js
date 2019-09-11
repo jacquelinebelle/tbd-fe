@@ -43,15 +43,37 @@ export class JobDetailPage extends Component {
     }
 
    displayDetails = () => {
-        return this.state.cityDetails.map(det => {
-            return <div className="detail-label">
-                <p onClick={this.revealDetails(det.label)}>{det.label}</p>
+       return this.state.cityDetails.map(det => {
+            this.state[det.label] = false;
+            return <div className={`detail-label ${this.state[det.label]}-label`} onClick={(e, label) => this.revealDetails(e, det.label)}>
+                <p >{det.label}</p>
             </div>
         })
     }
 
-    revealDetails = (label) => {
-        console.log(label)
+    revealDetails = (e, label) => {
+//         {data: Array(11), id: "COST-OF-LIVING", label: "Cost of Living"}
+// data: Array(11)
+// 0: {float_value: 0.4259, id: "CONSUMER-PRICE-INDEX-TELESCORE", label: "Inflation [Teleport score]", type: "float"}
+// 1:
+// currency_dollar_value: 4.4
+// id: "COST-APPLES"
+// label: "A kilogram of Apples"
+// type: "currency_dollar"
+// __proto__: Object
+// 2: {currency_dollar_value: 1.3, id: "COST-BREAD", label: "Bread", type: "currency_dollar"}
+// 3: {currency_dollar_value: 4.4, id: "COST-CAPPUCCINO", label: "A Cappuccino", type: "currency_dollar"}
+// 4: {currency_dollar_value: 14, id: "COST-CINEMA", label: "Movie ticket", type: "currency_dollar"}
+// 5: {currency_dollar_value: 74, id: "COST-FITNESS-CLUB", label: "Monthly fitness club membership", type: "currency_dollar"}
+// 6: {currency_dollar_va
+        const selectedDetail = this.state.cityDetails.find(det => det.label === label);
+        // this.setState({ [label]: !this.state[label] })
+        this.state[label] = !this.state[label]
+        console.log(label, this.state[label])
+        return selectedDetail.data.map(datas => {
+            let dataValue = Object.keys(datas)[0];
+            return <p className={`detail-label`}>{datas.label}: {dataValue}</p>
+        })
     }
 
    render() {
