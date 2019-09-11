@@ -1,17 +1,26 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import { JobListing } from './index';
+import React from "react";
+import { shallow } from "enzyme";
+import { JobListing } from "./index";
 
-describe('Job Listing', () => {
+const mockJob = {
+  lastModified: "01/26/2020",
+  title: "FrontEnd Engineer",
+  link: "randomlink.com",
+  location: "Dallas, TX",
+  salary: "400000",
+  company: "Tronkat Inc.",
+  snippet: "This is a random snippet",
+  type: "Full Time"
+};
 
+describe("Job Listing", () => {
   let wrapper;
-  beforeEach(()=> {
-    wrapper= shallow(
-      <JobListing jobs={}/>
-    )
-  })
 
-  it('should match the snapshot', () => {
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+  beforeEach(function() {
+    wrapper = shallow(<JobListing {...mockJob} />);
+  });
+
+  it("should match snapshot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+});
