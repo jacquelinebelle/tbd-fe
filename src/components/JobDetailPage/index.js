@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { cityThunk } from '../../thunks/cityThunks';
-import { getCityDetails } from '../../api/cityCalls';
+import { getCityDetails, getCitySalaries } from '../../api/cityCalls';
 import './JobDetailPage.scss'
 
 export class JobDetailPage extends Component {
@@ -10,7 +10,7 @@ export class JobDetailPage extends Component {
         this.state = {
             currJob: {},
             details: [],
-            scores: false
+            scores: false,
         }
     }
 
@@ -18,10 +18,12 @@ export class JobDetailPage extends Component {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
         const details = await getCityDetails(this.props.currentCity);
-        this.setState({ currJob, details });
+
         this.props.cityThunk(currJob.location);
         // console.log(details)
-        
+        const  salaries = await getCitySalaries("Denver")
+        console.log(await salaries)
+        this.setState({ currJob, details, salaries });
     }
 
     handleState = (e, key) => {
@@ -40,6 +42,18 @@ export class JobDetailPage extends Component {
         })
     }
 
+    pickSalaries =() => {
+        if(this.state.salaries) {
+            return this.state.salaries.map(salary => {
+                return (
+                    <option value={salary.job.id}>
+                        {salary.job.title}
+                    </option>
+                ) 
+            })
+        }
+    }
+
    displayDetails = async () => {
     //     const details = await getCityDetails(this.props.currentCity);
     //    console.log(details)
@@ -47,6 +61,17 @@ export class JobDetailPage extends Component {
     //         return <p>{det.data[0].label}</p>
     //     })
     }
+
+    changeSalary = (e) => {
+        if(e.target.value !== "default") {
+            const salary = this.state.salaries.find(foundSal => {
+                return foundSal.job.id === e.target.value
+            })
+            this.setState({salary})
+        }
+    }
+
+    
 
    render() {
         const { currentCity } = this.props;
@@ -87,7 +112,21 @@ export class JobDetailPage extends Component {
                 </div>
                 <div className={`${this.state.details} detail-city-more`} onClick={(e, details) => this.handleState(e, 'details')}>
                     <h4 className="detail-title">All Details</h4>
-                    <section className="city-details">
+                    <section className="salary-details">
+                        <select on onChange={this.changeSalary}>
+                            <option value="default">
+                                Pick a salary
+                            </option>
+                            {this.pickSalaries()}
+                        </select>
+                        {this.state.salary && 
+                            <>
+                            <p>Job Title: {this.state.salary.job.title}</p>
+                            <p>25th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
+                        <p> 50th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
+                        <p>75th Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
+                        </>
+                        }
                         {/* {this.displayDetails()} */}
                     </section>
                 </div>
