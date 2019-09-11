@@ -5,8 +5,15 @@ import './Form.scss';
 import { gatherJobs } from '../../actions';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-export class Form extends Component {
+import {mockJobs} from '../../api/mockData';
 
+export class Form extends Component {
+  constructor() {
+    super();
+    this.state = {
+
+    }
+  }
 
   handleChange = e => {
     this.setState({
@@ -15,7 +22,14 @@ export class Form extends Component {
   }
 
   handleSubmit = async () => {
-    this.props.jobsThunk(this.state);
+    if(!this.state.keywords){
+      return
+    }
+    // this.props.jobsThunk(this.state);
+
+    this.props.gatherJobs(mockJobs);
+
+
     // const jobs = await getJobs(this.state);
     // this.props.setJobs(await jobs);
   }
@@ -53,10 +67,12 @@ export class Form extends Component {
             name='radius' 
           />
         </label>
-        <Link to="/results">
+        <Link to="/results" disabled={!this.state.keywords}>
         <button 
           className='form-btn' 
           onClick={this.handleSubmit}
+          style={this.state.keywords && {backgroundColor: '#1e91ca'} || !this.state.keywords && {backgroundColor: '#B2D1E4'}}
+          disabled={!this.state.keywords}
           >
             Submit
         </button>
@@ -67,7 +83,8 @@ export class Form extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  jobsThunk: params => dispatch(jobsThunk(params))
+  // jobsThunk: params => dispatch(jobsThunk(params))
+  gatherJobs: jobs => dispatch(gatherJobs(jobs))
 });
 
 export default connect(null, mapDispatchToProps)(Form);
