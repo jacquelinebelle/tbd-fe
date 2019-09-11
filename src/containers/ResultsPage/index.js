@@ -36,7 +36,6 @@ export class ResultsPage extends Component {
     }
 
     displayCities = () => {
-        console.log(this.getRank())
         if (this.props.cities.length) {
             return this.props.cities.reduce((acc, city) => {
                 if (!city.message) {
@@ -58,7 +57,6 @@ export class ResultsPage extends Component {
     }
 
     getRank = (city) => {
-        console.log(city)
         if (!city) {
             return;
         }

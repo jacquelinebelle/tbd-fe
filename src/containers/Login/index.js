@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class index extends Component {
+export class Login extends Component {
   constructor() {
     super()
     this.state={
@@ -15,7 +15,7 @@ export class index extends Component {
   }
 
   handleChange =(e) => {
-    this.setState={[e.etarget.name]: e.target.value}
+    this.setState({[e.etarget.name]: e.target.value})
   }
 
 
@@ -50,4 +50,4 @@ const mapDispatchToProps =(dispatch) => ({
   
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(index)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
