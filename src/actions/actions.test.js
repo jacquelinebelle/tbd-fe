@@ -15,7 +15,7 @@ describe("actions", () => {
     const citiesData = ["city1", "city2"];
     const expectedAction = {
       type: "GATHER_CITIES",
-      cities: citiesData
+      city: citiesData
     };
     const result = actions.gatherCities(citiesData);
     expect(result).toEqual(expectedAction);

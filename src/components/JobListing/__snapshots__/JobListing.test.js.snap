@@ -42,5 +42,12 @@ exports[`Job Listing should match snapshot 1`] = `
   >
     This is a random snippet
   </p>
+  <Link
+    to="/job/undefined"
+  >
+    <button>
+      see more
+    </button>
+  </Link>
 </article>
 `;

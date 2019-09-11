@@ -1,7 +1,7 @@
 export const cityReducer = (state = [], action) => {
   switch(action.type) {
     case 'GATHER_CITIES':
-      state.push(action.city);
+      state.push(...action.city);
       return state;
     default:
       return state;

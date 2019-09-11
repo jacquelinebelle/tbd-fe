@@ -9,6 +9,8 @@ exports[`Results Page should match snapshot 1`] = `
   >
     <JobListing
       company="IQVIA"
+      handleSeeMore={[Function]}
+      id={2489493276763186000}
       key="2489493276763186000"
       lastModified="2019-09-04T03:13:55.1458976+03:00"
       link="https://us.jooble.org/away/2489493276763186316?p=1&pos=1&cid=512&ckey=Javascript&age=134&relb=175&brelb=115&scr=7278,57184782609&bscr=4783,0615&aq=19401826"
@@ -20,6 +22,8 @@ exports[`Results Page should match snapshot 1`] = `
     />
     <JobListing
       company="Vaco Technology"
+      handleSeeMore={[Function]}
+      id={2476942630518357000}
       key="2476942630518357000"
       lastModified="2019-09-05T08:01:17.9188044+03:00"
       link="https://us.jooble.org/away/-2476942630518357134?p=1&pos=2&cid=512&ckey=Javascript&age=105&relb=175&brelb=115&scr=7240,01630434783&bscr=4757,725&aq=19401826"
