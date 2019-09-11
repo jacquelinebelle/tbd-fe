@@ -144,7 +144,7 @@ export class JobDetailPage extends Component {
                 <div 
                     className={`${this.state.details} detail-city-more`} 
                     onClick={(e, details) => this.handleState(e, 'details')}>
-                    <h4 className="detail-title">All Details</h4>
+                    <h4 className="detail-title">Salaries</h4>
                     <section 
                         className="salary-details">
                         <select 
@@ -163,8 +163,13 @@ export class JobDetailPage extends Component {
                     </section>
                 </div>
                         {/* {this.displayDetails()} */}
-                <div className={`${this.state.details} detail-city-more`}>
-                    <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
+                <div 
+                    className={`${this.state.details} detail-city-more`}>
+                    <h4 
+                        className="detail-title" 
+                        onClick={(e, details) => this.handleState(e, 'details')}>
+                            All Details
+                    </h4>
                     <section className="city-details">
                         {this.state.details && this.displayDetails()}
                     </section>
