@@ -3,10 +3,25 @@ export const gatherJobs = jobs => ({
   jobs
 });
 
-export const gatherCities = cities => ({
+// export const gatherCities = cities => ({
+//   type: 'GATHER_CITIES',
+//   cities
+// });
+
+export const gatherCities = city => ({
   type: 'GATHER_CITIES',
-  cities
+  city
 });
+
+export const setCurrentJob = (job) => ({
+  type: 'SET_CURRENT_JOB',
+  job
+})
+
+export const setCurrentCity = (city) => ({
+  type: 'SET_CURRENT_CITY',
+  city
+})
 
 export const isLoading = (bool) => ({
   type: 'IS_LOADING',

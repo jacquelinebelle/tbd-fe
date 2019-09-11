@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 // import listings from './fakeListings';
 import JobListing from '../../components/JobListing';
-import CityPreview from '../../components/CityPreview';
 import { connect } from 'react-redux';
-import { scoreThunk } from '../../thunks/cityThunks';
+// import { cityThunk } from '../../thunks/cityThunk';
 // import { getCityDetails } from '../../api/cityCalls';
-// import { gatherCities } from '../../actions';
-// import loading from '../../assets/loading.gif';
+import { setCurrentJob } from '../../actions';
 import compass from '../../assets/blurry-compass.png'
 import './ResultsPage.scss';
 
@@ -18,42 +16,31 @@ export class ResultsPage extends Component {
         }
     }
 
-    componentDidUpdate = async () => {
-        if (!this.props.cities.length) {
-            const cities = await this.getCities(this.props.jobs);
-            this.props.scoreThunk(cities);
-        }
-    }
+    // componentDidUpdate = async () => {
+    //     if (!this.props.cities.length) {
+    //         // const cities = await this.getCities(this.props.jobs);
+    //         // this.props.cityThunk(cities);
+    //         this.props.jobs.map(job => {
+    //             this.props.cityThunk(job.location)
+    //         })
+    //     }
+    // }
     
 
-    getCities = (jobs) => {
-        return jobs.reduce((acc, job) => {
-            if (!acc.includes(job.location)) {
-                acc.push(job.location)
-            }
-            return acc;
-        }, []);
-    }
+    // getCities = (jobs) => {
+    //     return jobs.reduce((acc, job) => {
+    //         if (!acc.includes(job.location)) {
+    //             acc.push(job.location)
+    //         }
+    //         return acc;
+    //     }, []);
+    // }
 
-    displayCities = () => {
-        if (this.props.cities.length) {
-            return this.props.cities.reduce((acc, city) => {
-                if (!city.message) {
-                    acc.push(
-                    <CityPreview 
-                        name={city.city}
-                        img={city.web}
-                        housing={city.categories[0].score_out_of_10}
-                        safety={city.categories[7].score_out_of_10}
-                        healthcare={city.categories[8].score_out_of_10}
-                        tolerance={city.categories[15].score_out_of_10}
-                        rank={this.getRank(city)}
-                    />)
-                        
-                }
-                return acc
-            }, []);
-        }
+    handleSeeMore = (e, par) => {
+        e.preventDefault()
+        console.log(par)
+        // let foundJob = this.props.jobs.find(job => job.id === id);
+        // this.props.setCurrentJob(foundJob)
     }
 
     getRank = (city) => {
@@ -81,6 +68,8 @@ export class ResultsPage extends Component {
                 salary={job.salary}
                 company={job.company}
                 snippet={job.snippet}
+                id={job.id}
+                handleSeeMore={this.handleSeeMore}
                 key={job.id}
             />
         })
@@ -102,7 +91,9 @@ export class ResultsPage extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-    scoreThunk: cities => dispatch(scoreThunk(cities))
+    // scoreThunk: cities => dispatch(scoreThunk(cities)),
+    setCurrentJob: job => dispatch(setCurrentJob(job))
+    // cityThunk: cities => dispatch(cityThunk(cities))
   });
 
 export const mapStateToProps = ({ jobs, cities, loading, error }) => ({
