@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 export class Login extends Component {
+
   constructor() {
     super()
     this.state={
@@ -15,7 +16,7 @@ export class Login extends Component {
   }
 
   handleChange =(e) => {
-    this.setState({[e.etarget.name]: e.target.value})
+    this.setState({[e.target.name]: e.target.value})
   }
 
 
@@ -26,11 +27,13 @@ export class Login extends Component {
           <input 
             placeholder="Email..."
             value={this.state.email}
+            name="email"
             onChange={this.handleChange}
           />
           <input 
             placeholder="Password"
             type="password"
+            name="password"
             onChange={this.handleChange}
           />
           <button onClick={()=> this.login()}>
@@ -51,3 +54,4 @@ const mapDispatchToProps =(dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
