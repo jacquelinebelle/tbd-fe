@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Login should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Login should match the snapshot 1`] = `
+<div>
+  <form>
+    <input
+      name="email"
+      onChange={[Function]}
+      placeholder="Email..."
+      value=""
+    />
+    <input
+      name="password"
+      onChange={[Function]}
+      placeholder="Password"
+      type="password"
+    />
+    <button
+      onClick={[Function]}
+    />
+  </form>
+</div>
+`;

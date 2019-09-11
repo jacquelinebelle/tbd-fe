@@ -40,4 +40,24 @@ describe("actions", () => {
     const result = actions.gotError(messageData);
     expect(result).toEqual(expectedAction);
   });
+
+  it("should have a type of LOGIN", () => {
+    const loginData = {username: 'Marc', pass: 'nunya'};
+    const expectedAction = {
+      type: "LOGIN",
+      loginInfo: loginData
+    };
+    const result = actions.login(loginData);
+    expect(result).toEqual(expectedAction);
+  });
+
+  it("should have a type of LOGOUT", () => {
+    const email = "turing@school.com";
+    const expectedAction = {
+      type: "LOGOUT",
+      email
+    };
+    const result = actions.logout(email);
+    expect(result).toEqual(expectedAction);
+  });
 });

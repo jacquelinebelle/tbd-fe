@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Results Page should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Results Page should match snapshot 1`] = `
+<main
+  className="results-page"
+>
+  <section
+    className="job-list"
+  >
+    <JobListing
+      company="IQVIA"
+      key="2489493276763186000"
+      lastModified="2019-09-04T03:13:55.1458976+03:00"
+      link="https://us.jooble.org/away/2489493276763186316?p=1&pos=1&cid=512&ckey=Javascript&age=134&relb=175&brelb=115&scr=7278,57184782609&bscr=4783,0615&aq=19401826"
+      location="Mesa, AZ"
+      salary=""
+      snippet="Sample snippet 1"
+      title="JavaScript Developer"
+      type="Full-time"
+    />
+    <JobListing
+      company="Vaco Technology"
+      key="2476942630518357000"
+      lastModified="2019-09-05T08:01:17.9188044+03:00"
+      link="https://us.jooble.org/away/-2476942630518357134?p=1&pos=2&cid=512&ckey=Javascript&age=105&relb=175&brelb=115&scr=7240,01630434783&bscr=4757,725&aq=19401826"
+      location="Durham, NC"
+      salary=""
+      snippet="Sample snippet 2"
+      title="JavaScript Developer"
+      type="Full-time"
+    />
+  </section>
+</main>
+`;
