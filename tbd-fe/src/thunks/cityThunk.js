@@ -1,18 +1,21 @@
-import { gatherCities, isLoading, gotError } from '../actions';
-import { getCityDetails } from '../api/cityCalls';
+import { gatherCities, setCurrentCity, isLoading, gotError } from '../actions';
+import { getCityDetails, getCityImages, getCityScores } from '../api/cityCalls';
 
-export const cityThunk = (locations) => {
+export const cityThunk = (city) => {
     return async (dispatch) => {
         try {
             dispatch(isLoading(true));
-            const cities = await Promise.all(locations.map(city => {
-                return getCityDetails(city);
-            }));
+            let image = await getCityImages(city);
+            let scores = await getCityScores(city);
+            let cityObject = {...image, ...scores}
             dispatch(isLoading(false));
-            dispatch(gatherCities(cities));
-            return cities;
+            console.log(cityObject)
+            dispatch(setCurrentCity(cityObject));
+            // this.setState({ city: cityObject })
         } catch (error) {
         dispatch(gotError(error.message));
       }
     }
   }
+
+  

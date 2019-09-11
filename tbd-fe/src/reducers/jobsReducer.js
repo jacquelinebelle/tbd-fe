@@ -2,6 +2,16 @@ export const jobsReducer = (state = [], action) => {
   switch(action.type) {
     case 'GATHER_JOBS':
       return action.jobs;
+    
+    default:
+      return state;
+  }
+}
+
+export const currentJob = (state = {}, action) => {
+  switch(action.type) {
+    case 'SET_CURRENT_JOB':
+      return action.job;
     default:
       return state;
   }

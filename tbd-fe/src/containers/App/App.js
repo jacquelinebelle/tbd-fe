@@ -3,7 +3,8 @@ import { Route, Switch, Link } from 'react-router-dom';
 import ResultsPage from '../ResultsPage';
 import './App.scss';
 import Form from '../Form/';
-import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
+import JobDetailPage from '../../components/JobDetailPage';
+// import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
 class App extends Component {
 constructor() {
@@ -28,7 +29,10 @@ constructor() {
             exact path='/results' 
             component={ResultsPage} 
           />
-
+          <Route exact path={`/job/:id`} render={
+                (id) => (<JobDetailPage id={id.location.pathname} history={id.history} />)
+            }
+            />
         </div>
       </Switch>
     )

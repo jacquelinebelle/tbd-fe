@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 // import listings from './fakeListings';
 import JobListing from '../../components/JobListing';
-import CityPreview from '../../components/CityPreview';
 import { connect } from 'react-redux';
-import { cityThunk } from '../../thunks/cityThunk';
+// import { cityThunk } from '../../thunks/cityThunk';
 // import { getCityDetails } from '../../api/cityCalls';
-// import { gatherCities } from '../../actions';
+import { setCurrentJob } from '../../actions';
 import loading from '../../assets/loading.gif';
 import './ResultsPage.scss';
 
@@ -17,34 +16,31 @@ export class ResultsPage extends Component {
         }
     }
 
-    componentDidUpdate = async () => {
-        if (!this.props.cities.length) {
-            console.log('update')
-            const cities = await this.getCities(this.props.jobs);
-            this.props.cityThunk(cities);
-        }
-    }
+    // componentDidUpdate = async () => {
+    //     if (!this.props.cities.length) {
+    //         // const cities = await this.getCities(this.props.jobs);
+    //         // this.props.cityThunk(cities);
+    //         this.props.jobs.map(job => {
+    //             this.props.cityThunk(job.location)
+    //         })
+    //     }
+    // }
     
 
-    getCities = (jobs) => {
-        return jobs.reduce((acc, job) => {
-            if (!acc.includes(job.location)) {
-                acc.push(job.location)
-            }
-            return acc;
-        }, []);
-    }
+    // getCities = (jobs) => {
+    //     return jobs.reduce((acc, job) => {
+    //         if (!acc.includes(job.location)) {
+    //             acc.push(job.location)
+    //         }
+    //         return acc;
+    //     }, []);
+    // }
 
-    displayCities = () => {
-        if (this.props.cities.length) {
-            return this.props.cities.reduce((acc, city) => {
-                if (!city.message) {
-                    acc.push(<CityPreview />)
-                        
-                }
-                return acc
-            }, []);
-        }
+    handleSeeMore = (e, par) => {
+        e.preventDefault()
+        console.log(par)
+        // let foundJob = this.props.jobs.find(job => job.id === id);
+        // this.props.setCurrentJob(foundJob)
     }
 
     displayJobs = () => {
@@ -58,6 +54,8 @@ export class ResultsPage extends Component {
                 salary={job.salary}
                 company={job.company}
                 snippet={job.snippet}
+                id={job.id}
+                handleSeeMore={this.handleSeeMore}
                 key={job.id}
             />
         })
@@ -70,8 +68,8 @@ export class ResultsPage extends Component {
                     {this.displayJobs()}
                 </section>
                 <section className="city-list">
-                    {this.props.loading && <img src={loading} />}
-                   {!this.props.loading && this.displayCities()}
+                    {/* {this.props.loading && <img src={loading} />}
+                   {!this.props.loading && this.displayCities()} */}
                 </section>
             </main>
         )
@@ -79,7 +77,8 @@ export class ResultsPage extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-    cityThunk: cities => dispatch(cityThunk(cities))
+    setCurrentJob: job => dispatch(setCurrentJob(job)),
+    // cityThunk: cities => dispatch(cityThunk(cities))
   });
 
 export const mapStateToProps = ({ jobs, cities, loading, error }) => ({
