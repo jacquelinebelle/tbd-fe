@@ -5,6 +5,8 @@ import './Form.scss';
 import { gatherJobs } from '../../actions';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import {mockJobs} from '../../api/mockData';
+
 export class Form extends Component {
   constructor() {
     super();
@@ -23,7 +25,11 @@ export class Form extends Component {
     if(!this.state.keywords){
       return
     }
-    this.props.jobsThunk(this.state);
+    // this.props.jobsThunk(this.state);
+
+    this.props.gatherJobs(mockJobs);
+
+
     // const jobs = await getJobs(this.state);
     // this.props.setJobs(await jobs);
   }
@@ -77,7 +83,8 @@ export class Form extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  jobsThunk: params => dispatch(jobsThunk(params))
+  // jobsThunk: params => dispatch(jobsThunk(params))
+  gatherJobs: jobs => dispatch(gatherJobs(jobs))
 });
 
 export default connect(null, mapDispatchToProps)(Form);
