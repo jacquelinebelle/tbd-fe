@@ -54,12 +54,43 @@ export class JobDetailPage extends Component {
         }
     }
 
-   displayDetails = async () => {
-    //     const details = await getCityDetails(this.props.currentCity);
-    //    console.log(details)
-    //     return details.map(det => {
-    //         return <p>{det.data[0].label}</p>
-    //     })
+   displayDetails = () => {
+       return this.state.details.map(det => {
+            this.state[det.label] = false;
+            return (
+            <div 
+            className={`detail-label ${this.state[det.label]}-label`} 
+            onClick={(e, label) => this.revealDetails(e, det.label)}>
+                <p >{det.label}</p>
+            </div>
+
+            ) 
+        })
+    }
+
+    revealDetails = (e, label) => {
+//         {data: Array(11), id: "COST-OF-LIVING", label: "Cost of Living"}
+// data: Array(11)
+// 0: {float_value: 0.4259, id: "CONSUMER-PRICE-INDEX-TELESCORE", label: "Inflation [Teleport score]", type: "float"}
+// 1:
+// currency_dollar_value: 4.4
+// id: "COST-APPLES"
+// label: "A kilogram of Apples"
+// type: "currency_dollar"
+// __proto__: Object
+// 2: {currency_dollar_value: 1.3, id: "COST-BREAD", label: "Bread", type: "currency_dollar"}
+// 3: {currency_dollar_value: 4.4, id: "COST-CAPPUCCINO", label: "A Cappuccino", type: "currency_dollar"}
+// 4: {currency_dollar_value: 14, id: "COST-CINEMA", label: "Movie ticket", type: "currency_dollar"}
+// 5: {currency_dollar_value: 74, id: "COST-FITNESS-CLUB", label: "Monthly fitness club membership", type: "currency_dollar"}
+// 6: {currency_dollar_va
+        const selectedDetail = this.state.cityDetails.find(det => det.label === label);
+        // this.setState({ [label]: !this.state[label] })
+        this.state[label] = !this.state[label]
+        console.log(label, this.state[label])
+        return selectedDetail.data.map(datas => {
+            let dataValue = Object.keys(datas)[0];
+            return <p className={`detail-label`}>{datas.label}: {dataValue}</p>
+        })
     }
 
     changeSalary = (e) => {
@@ -104,30 +135,38 @@ export class JobDetailPage extends Component {
                         </p>
                     </section>
                 </div>
-                <div className={`${this.state.scores} detail-city-more`} onClick={(e, scores) => this.handleState(e, 'scores')}>
-                    <h4 className="detail-title">All Scores</h4>
+                <div className={`${this.state.scores} detail-city-more`} >
+                    <h4 className="detail-title" onClick={(e, scores) => this.handleState(e, 'scores')}>All Scores</h4>
                     <section className="city-scores">
                         {this.state.scores && this.displayScores()}
                     </section>
                 </div>
-                <div className={`${this.state.details} detail-city-more`} onClick={(e, details) => this.handleState(e, 'details')}>
+                <div 
+                    className={`${this.state.details} detail-city-more`} 
+                    onClick={(e, details) => this.handleState(e, 'details')}>
                     <h4 className="detail-title">All Details</h4>
-                    <section className="salary-details">
-                        <select on onChange={this.changeSalary}>
-                            <option value="default">
-                                Pick a salary
-                            </option>
+                    <section 
+                        className="salary-details">
+                        <select 
+                            onChange={this.changeSalary}>
+                            <option value="default">Pick a salary</option>
                             {this.pickSalaries()}
                         </select>
-                        {this.state.salary && 
-                            <>
+                        { this.state.salary && 
+                        <>
                             <p>Job Title: {this.state.salary.job.title}</p>
                             <p>25th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
-                        <p> 50th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
-                        <p>75th Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
+                            <p> 50th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
+                            <p>75th Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
                         </>
                         }
+                    </section>
+                </div>
                         {/* {this.displayDetails()} */}
+                <div className={`${this.state.details} detail-city-more`}>
+                    <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
+                    <section className="city-details">
+                        {this.state.details && this.displayDetails()}
                     </section>
                 </div>
             </article>
