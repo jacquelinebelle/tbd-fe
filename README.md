@@ -1,10 +1,12 @@
 # Compass
 
 ## Team Members
-### <a href='github.com/davehardy632'>David Hardy</a>
-### Patrick Goulding
-### Jacqueline Moore
-### De'Marcus Kirby
+Back End Team
+### [David Hardy](http://www.github.com/davehardy632)
+### [Patrick Goulding](http://www.github.com/pgoulding)
+Front End Team
+### [Jacqueline Moore](http://www.github.com/jacquelinebelle)
+### [De'Marcus Kirby](http://www.github.com/KirbyDD)
 
 ## Live Version
 
