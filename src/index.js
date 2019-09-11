@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { rootReducer } from './reducers';
 import App from './containers/App/App';
+import * as serviceWorker from './serviceWorker';
 // export const electron = window.require("electron")
 
 
@@ -24,3 +25,5 @@ const store = createStore(
   )
   
 ReactDOM.render(router, document.getElementById('root'));
+
+serviceWorker.register();
