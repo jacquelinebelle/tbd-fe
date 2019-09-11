@@ -123,3 +123,11 @@
     cursor: pointer;
 }
 
+.shownDetail {
+    display: flex;
+    z-index: 1;
+}
+
+.shownDetail:hover {
+    cursor: pointer;
+}

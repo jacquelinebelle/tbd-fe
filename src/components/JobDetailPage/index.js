@@ -11,7 +11,8 @@ export class JobDetailPage extends Component {
             currJob: {},
             cityDetails: [],
             scores: false,
-            details: false
+            details: false,
+            shownDetail: ''
         }
     }
 
@@ -39,19 +40,23 @@ export class JobDetailPage extends Component {
                 scoreType = 'bad'
             }
             return <p className={`${scoreType}-score`}>{cat.name}: {parseFloat(cat.score_out_of_10).toFixed(2)}/10</p>
-        })
+        });
     }
 
    displayDetails = () => {
        return this.state.cityDetails.map(det => {
-            this.state[det.label] = false;
-            return <div className={`detail-label ${this.state[det.label]}-label`} onClick={(e, label) => this.revealDetails(e, det.label)}>
-                <p >{det.label}</p>
+            return <div className={`detail-label`} onClick={(e, label) => this.selectDetail(e, det.label)}>
+                <p>{det.label}</p>
             </div>
-        })
+        });
     }
 
-    revealDetails = (e, label) => {
+    selectDetail = (e, label) => {
+        this.setState({ shownDetail: label })
+
+    }
+
+    revealDetails = () => {
 //         {data: Array(11), id: "COST-OF-LIVING", label: "Cost of Living"}
 // data: Array(11)
 // 0: {float_value: 0.4259, id: "CONSUMER-PRICE-INDEX-TELESCORE", label: "Inflation [Teleport score]", type: "float"}
@@ -66,13 +71,17 @@ export class JobDetailPage extends Component {
 // 4: {currency_dollar_value: 14, id: "COST-CINEMA", label: "Movie ticket", type: "currency_dollar"}
 // 5: {currency_dollar_value: 74, id: "COST-FITNESS-CLUB", label: "Monthly fitness club membership", type: "currency_dollar"}
 // 6: {currency_dollar_va
+
+        let label = this.state.shownDetail
         const selectedDetail = this.state.cityDetails.find(det => det.label === label);
+        console.log(selectedDetail, label, this.state.cityDetails)
         // this.setState({ [label]: !this.state[label] })
-        this.state[label] = !this.state[label]
-        console.log(label, this.state[label])
+        // this.state[label] = !this.state[label]
+        // this.setState({ shownDetail: label })
+        // console.log(!this.state[label], this.state.Education, this.state)
         return selectedDetail.data.map(datas => {
             let dataValue = Object.keys(datas)[0];
-            return <p className={`detail-label`}>{datas.label}: {dataValue}</p>
+            return <p className={`detail-data`}>{datas.label}: {dataValue}</p>
         })
     }
 
@@ -115,8 +124,11 @@ export class JobDetailPage extends Component {
                 </div>
                 <div className={`${this.state.details} detail-city-more`}>
                     <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
-                    <section className="city-details">
-                        {this.state.details && this.displayDetails()}
+                    <section className='city-details'>
+                        {(this.state.details && this.state.shownDetail === '') && this.displayDetails()}
+                        <div className="shownDetail" onClick={(e, label) => this.selectDetail(e, '')}>
+                            {this.state.shownDetail && this.revealDetails()}
+                        </div>
                     </section>
                 </div>
             </article>
