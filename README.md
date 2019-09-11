@@ -1,7 +1,7 @@
 # Compass
 
 ## Team Members
-### David Hardy
+### <a href='github.com/davehardy632'>David Hardy</a>
 ### Patrick Goulding
 ### Jacqueline Moore
 ### De'Marcus Kirby
