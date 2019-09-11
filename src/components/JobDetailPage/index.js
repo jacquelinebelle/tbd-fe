@@ -57,31 +57,12 @@ export class JobDetailPage extends Component {
     }
 
     revealDetails = () => {
-//         {data: Array(11), id: "COST-OF-LIVING", label: "Cost of Living"}
-// data: Array(11)
-// 0: {float_value: 0.4259, id: "CONSUMER-PRICE-INDEX-TELESCORE", label: "Inflation [Teleport score]", type: "float"}
-// 1:
-// currency_dollar_value: 4.4
-// id: "COST-APPLES"
-// label: "A kilogram of Apples"
-// type: "currency_dollar"
-// __proto__: Object
-// 2: {currency_dollar_value: 1.3, id: "COST-BREAD", label: "Bread", type: "currency_dollar"}
-// 3: {currency_dollar_value: 4.4, id: "COST-CAPPUCCINO", label: "A Cappuccino", type: "currency_dollar"}
-// 4: {currency_dollar_value: 14, id: "COST-CINEMA", label: "Movie ticket", type: "currency_dollar"}
-// 5: {currency_dollar_value: 74, id: "COST-FITNESS-CLUB", label: "Monthly fitness club membership", type: "currency_dollar"}
-// 6: {currency_dollar_va
-
         let label = this.state.shownDetail
         const selectedDetail = this.state.cityDetails.find(det => det.label === label);
-        console.log(selectedDetail, label, this.state.cityDetails)
-        // this.setState({ [label]: !this.state[label] })
-        // this.state[label] = !this.state[label]
-        // this.setState({ shownDetail: label })
-        // console.log(!this.state[label], this.state.Education, this.state)
         return selectedDetail.data.map(datas => {
-            let dataValue = Object.keys(datas)[0];
-            return <p className={`detail-data`}>{datas.label}: {dataValue}</p>
+            let dataValue = Object.keys(datas).find(key => key.split('_').includes('value'));
+            console.log(dataValue)
+            return <p className={`detail-data`}>{datas.label}: {datas[dataValue]}</p>
         })
     }
 
@@ -137,7 +118,6 @@ export class JobDetailPage extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-    // setCurrentCity: city => dispatch(setCurrentCity(city)),
     cityThunk: city => dispatch(cityThunk(city))
   });
 
