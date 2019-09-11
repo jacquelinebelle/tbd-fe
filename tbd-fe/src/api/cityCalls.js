@@ -10,7 +10,7 @@ export const getCityDetails = async (city) => {
         }
         const response = await fetch(serverUrl, options)
         const results = await response.json()
-        return {city: city, ...results};
+        return results;
     } catch (error) {
         throw Error(error.message)
     }

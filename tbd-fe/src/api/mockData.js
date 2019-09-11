@@ -2,7 +2,7 @@ export const mockJobs = [
     {
     title: "JavaScript Developer",
     location: "Houston, TX",
-    snippet: "Sample snippet 1",
+    snippet: "&nbsp;...<b>JavaScript </b>Developer - Mid-Level to Senior",
     salary: "",
     source: "Careerbuilder.com",
     type: "Full-time",
