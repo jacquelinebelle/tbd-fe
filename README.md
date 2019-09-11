@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Compass
 
-## Available Scripts
+## Team Members
+### David Hardy
+### Patrick Goulding
+### Jacqueline Moore
+### De'Marcus Kirby
 
-In the project directory, you can run:
+## Live Version
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This project is a simple site, built with React and Redux, that provides Job Listings and a high degree of city information. The user may enter a job title, keywords, or location and receive a listing of jobs. Clicking on the job listing will provide information about the major city nearest to its location. The user will be provided with different urban area scores, details, and salaries.
 
-### `npm test`
+## Setup
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Simply start by cloning this repo for front end and the following repo for the back end in sepreate folders:
 
-### `npm run build`
+```bash
+git clone git@github.com:jacquelinebelle/tbd-fe.git
+```
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you have cloned the repos, to install the library dependencies. Run:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Run `npm start` in your terminal. Go to `http://localhost:3000/` and you should see a live version of the application if installed correctly.
 
-### `npm run eject`
+## Testing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run `npm test` in your terminal if you would like to see the testing results.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Run `npm test -- --coverage --watchAll=false` in your terminal in your terminal if you would like to see test coverage.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Home Page/Search Page:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img width="1436" alt="Screen Shot 2019-09-11 at 9 36 57 AM" src="https://user-images.githubusercontent.com/36940278/64712400-ac320980-d4aa-11e9-9ba9-5632794f138e.png">
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Job Listings:
 
-### Analyzing the Bundle Size
+<img width="1440" alt="Screen Shot 2019-09-11 at 9 36 41 AM" src="https://user-images.githubusercontent.com/36940278/64712411-af2cfa00-d4aa-11e9-9ba1-fe67351ea172.png">
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Emphasis of the Project
+
+Further knowledge on the following technologies/principles:
+
+- ReactJS
+- Redux
+- Thunks
+- JSX
+- Jest and Enzyme Testing
+- Fetch API's
+- Asynchronous JS and Testing
+- Router
+- GitHub Issues
+- SCSS
+- Trello Project Management Board
+
 
 ### Making a Progressive Web App
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
