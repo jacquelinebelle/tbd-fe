@@ -6,6 +6,7 @@ exports[`App should match snapshot 1`] = `
     className="App"
   >
     <img
+      alt="aerial view of a cirty with scyscrapers"
       className="result-background"
       src="https://wallpapercave.com/wp/wp3594884.jpg"
     />

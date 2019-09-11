@@ -19,7 +19,7 @@ constructor() {
     return (
       <Switch>
         <div className="App">
-          <img src='https://wallpapercave.com/wp/wp3594884.jpg' className='result-background'/>
+          <img alt="aerial view of a cirty with scyscrapers" src='https://wallpapercave.com/wp/wp3594884.jpg' className='result-background'/>
           <Header />
           <Route 
             exact path='/' 
