@@ -236,3 +236,5 @@ const mockCities = [
     ]
   }
 ];
+
+export default mockCities;

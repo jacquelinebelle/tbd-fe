@@ -53,3 +53,5 @@ const mockJobs = [
     id: 3689689097643763000
   }
 ];
+
+export default mockJobs;
