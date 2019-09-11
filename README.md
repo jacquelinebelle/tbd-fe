@@ -1,6 +1,5 @@
 # Compass ([Live Site](https://master.d1unm2lt3lovzm.amplifyapp.com/))
-
-
+[![Build Status](https://travis-ci.org/jacquelinebelle/tbd-fe.svg?branch=master)](https://travis-ci.org/jacquelinebelle/tbd-fe)
 ## Team Members
 | Name | Github | Team |
 |:----------------:|:----------------------------------:|:----------:|
@@ -8,7 +7,6 @@
 | DeMarcus Kirby | https://github.com/KirbyDD | Front End |
 | Jacqueline Moore | https://github.com/jacquelinebelle | Front End |
 | Patrick Goulding | https://github.com/pgoulding | Full Stack |
-
 
 ## Description
 
