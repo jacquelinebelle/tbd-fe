@@ -22,10 +22,10 @@ export class Form extends Component {
   }
 
   handleSubmit = async () => {
-    // this.props.jobsThunk(this.state);
+    this.props.jobsThunk(this.state);
 
 
-    this.props.gatherJobs(mockJobs);
+    // this.props.gatherJobs(mockJobs);
 
 
     // const jobs = await getJobs(this.state);
@@ -81,7 +81,7 @@ export class Form extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  // jobsThunk: params => dispatch(jobsThunk(params))
+  jobsThunk: params => dispatch(jobsThunk(params)),
   gatherJobs: jobs => dispatch(gatherJobs(jobs))
 });
 

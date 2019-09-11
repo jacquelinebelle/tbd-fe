@@ -9,7 +9,8 @@ export class JobDetailPage extends Component {
         super();
         this.state = {
             currJob: {},
-            details: [],
+            cityDetails: [],
+            details:false,
             scores: false,
         }
     }
@@ -17,13 +18,13 @@ export class JobDetailPage extends Component {
     componentDidMount = async () => {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
-        const details = await getCityDetails(this.props.currentCity);
+        const cityDetails = await getCityDetails(this.props.currentCity);
 
         this.props.cityThunk(currJob.location);
         // console.log(details)
         const  salaries = await getCitySalaries("Denver")
         console.log(await salaries)
-        this.setState({ currJob, details, salaries });
+        this.setState({ currJob, cityDetails, salaries });
     }
 
     handleState = (e, key) => {
@@ -55,7 +56,7 @@ export class JobDetailPage extends Component {
     }
 
    displayDetails = () => {
-       return this.state.details.map(det => {
+       return this.state.cityDetails.map(det => {
             this.state[det.label] = false;
             return (
             <div 
@@ -142,9 +143,9 @@ export class JobDetailPage extends Component {
                     </section>
                 </div>
                 <div 
-                    className={`${this.state.details} detail-city-more`} >
-                    {/* onClick={(e, details) => this.handleState(e, 'details')}> */}
-                    <h4 className="detail-title">All Salaries</h4>
+                    className={`${this.state.details} detail-city-more`} 
+                    onClick={(e) => this.handleState(e, 'salary-details')}>
+                    <h4 className="detail-title">Salaries</h4>
                     <section 
                         className="salary-details">
                         <select 
@@ -165,8 +166,13 @@ export class JobDetailPage extends Component {
                     </section>
                 </div>
                         {/* {this.displayDetails()} */}
-                <div className={`${this.state.details} detail-city-more`}>
-                    <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
+                <div 
+                    className={`${this.state.details} detail-city-more`}>
+                    <h4 
+                        className="detail-title" 
+                        onClick={(e) => this.handleState(e, 'details')}>
+                            All Details
+                    </h4>
                     <section className="city-details">
                         {this.state.details && this.displayDetails()}
                     </section>
