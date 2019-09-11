@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class index extends Component {
+export class Login extends Component {
+
   constructor() {
     super()
     this.state={
@@ -52,4 +53,5 @@ const mapDispatchToProps =(dispatch) => ({
   
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(index)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
