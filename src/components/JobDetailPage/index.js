@@ -53,7 +53,7 @@ export class JobDetailPage extends Component {
         const { currJob } = this.state;
         return (
             <article className="job-detail">
-                <img className="detail-img" src={currentCity.web} />
+                <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />
                 <div className="detail-sections-container">
                     <section className="job-details-section">
                         <h3 className="details-job-title">{currJob.title}</h3>

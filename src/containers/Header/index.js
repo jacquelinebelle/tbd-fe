@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <header> 
         <Link to='/' className='logo'>
-          <img src={require('./compassLogo-test1.png')} className='logo-img'/>
+          <img alt="Compass site logo with title COMPASS"src={require('./compassLogo-test1.png')} className='logo-img'/>
         </Link>
     </header>
   )
