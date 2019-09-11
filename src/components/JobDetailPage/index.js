@@ -142,9 +142,9 @@ export class JobDetailPage extends Component {
                     </section>
                 </div>
                 <div 
-                    className={`${this.state.details} detail-city-more`} 
-                    onClick={(e, details) => this.handleState(e, 'details')}>
-                    <h4 className="detail-title">All Details</h4>
+                    className={`${this.state.details} detail-city-more`} >
+                    {/* onClick={(e, details) => this.handleState(e, 'details')}> */}
+                    <h4 className="detail-title">All Salaries</h4>
                     <section 
                         className="salary-details">
                         <select 
@@ -154,11 +154,13 @@ export class JobDetailPage extends Component {
                         </select>
                         { this.state.salary && 
                         <>
-                            <p>Job Title: {this.state.salary.job.title}</p>
-                            <p>25th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
-                            <p> 50th Salary Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
-                            <p>75th Percentile: ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
-                        </>
+                            <h3>{this.state.salary.job.title}</h3>
+                        <div className='salary-info'>
+                            <p><strong>25th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
+                            <p><strong>50th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
+                            <p><strong>75th Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
+                        </div>
+                            </>
                         }
                     </section>
                 </div>

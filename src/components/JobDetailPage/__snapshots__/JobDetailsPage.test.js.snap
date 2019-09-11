@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Job Details Page should match snapshot 1`] = `
+<article
+  className="job-detail"
+>
+  <img
+    className="detail-img"
+    src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/phoenix_web-92224752db.jpg"
+  />
+  <div
+    className="detail-sections-container"
+  >
+    <section
+      className="job-details-section"
+    >
+      <h3
+        className="details-job-title"
+      />
+      <a>
+        Link to the listing.
+      </a>
+      <p
+        className="detail-job-salary"
+      />
+      <p
+        className="detail-snippet"
+      />
+      <p
+        className="detail-job-update"
+      />
+    </section>
+    <section
+      className="city-details-section"
+    >
+      <h3 />
+      <p
+        className="detail-city-disclaimer"
+      >
+        Based on nearest major city.
+      </p>
+      <p
+        className="detail-city-summary"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<p>Phoenix, Arizona, is among the top cities with a <b>free business environment</b>. According to our city rankings, this is a good place to live with high ratings in <b>healthcare</b>, <b>leisure & culture</b> and <b>outdoors</b>. </p> <p>Phoenix is one of the top ten city matches for 0.2% of Teleport users.</p> ",
+          }
+        }
+      />
+      <p
+        className="detail-teleport-score"
+      >
+        Overal Teleport Score: 56.66
+      </p>
+    </section>
+  </div>
+  <div
+    className="false detail-city-more"
+    onClick={[Function]}
+  >
+    <h4
+      className="detail-title"
+    >
+      All Scores
+    </h4>
+    <section
+      className="city-scores"
+    />
+  </div>
+  <div
+    className=" detail-city-more"
+    onClick={[Function]}
+  >
+    <h4
+      className="detail-title"
+    >
+      All Details
+    </h4>
+    <section
+      className="city-details"
+    />
+  </div>
+</article>
+`;

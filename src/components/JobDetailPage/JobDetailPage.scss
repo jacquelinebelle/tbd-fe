@@ -123,3 +123,24 @@
     cursor: pointer;
 }
 
+.salary-details {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    select {
+        font-size: 1rem;
+        height: 34px;
+    }
+}
+
+.salary-info {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    p {
+        margin: 10px 30px;
+        width: 23%;
+        transition-delay: 1s; 
+    }
+}
+
