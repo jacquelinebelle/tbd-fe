@@ -60,7 +60,7 @@ describe("Form", () => {
       const mockDispatch = jest.fn();
       const mockState = {keywords: 'developer'}
       const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.jobsThunk(mockState)
+      mappedProps.gatherJobs(mockState)
       expect(mockDispatch).toHaveBeenCalled();
     })
   })

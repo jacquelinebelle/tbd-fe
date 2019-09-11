@@ -127,10 +127,6 @@ describe("Results Page", () => {
     expect(wrapper.instance().displayJobs()).toHaveLength(2);
   });
 
-  it("should return an array when displayJobs", () => {
-    expect(wrapper.instance().displayCities()).toHaveLength(3);
-  });
-
   it("should return nothing if no city from getRank", () => {
     expect(wrapper.instance().getRank()).toEqual(undefined);
   });
@@ -139,18 +135,11 @@ describe("Results Page", () => {
     expect(wrapper.instance().getRank(mockCity)).toEqual("2/3");
   });
 
-  it("should return an array of cities", () => {
-    expect(wrapper.instance().getCities(mockJobs)).toEqual([
-      "Mesa, AZ",
-      "Durham, NC"
-    ]);
-  });
-
   describe("mapDispatchToProps", () => {
     it("should call scoreThunk when dispatch", () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.scoreThunk(mockCities);
+      mappedProps.setCurrentJob(mockCities);
       expect(mockDispatch).toHaveBeenCalled();
     });
   });

@@ -1,3 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Job Listing should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Job Listing should match snapshot 1`] = `
+<article
+  className="job"
+>
+  <p
+    className="job-date"
+  >
+    Last modified: 
+    01/26/2020
+  </p>
+  <h3
+    className="job-title"
+  >
+    <a
+      className="job-title"
+      href="randomlink.com"
+    >
+      FrontEnd Engineer
+    </a>
+  </h3>
+  <h5
+    className="job-location"
+  >
+    Dallas, TX
+  </h5>
+  <h5
+    className="job-salary"
+  >
+    Full Time
+    : 
+    400000
+  </h5>
+  <p
+    className="job-company"
+  >
+    Tronkat Inc.
+  </p>
+  <p
+    className="job-description"
+  >
+    This is a random snippet
+  </p>
+  <Link
+    to="/job/undefined"
+  >
+    <button>
+      see more
+    </button>
+  </Link>
+</article>
+`;

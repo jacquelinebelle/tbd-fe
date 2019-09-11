@@ -1,3 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Form should match snapshot 1`] = `ShallowWrapper {}`;
+exports[`Form should match snapshot 1`] = `
+<form
+  className="search-form"
+  onChange={[Function]}
+>
+  <label
+    className="search-label"
+  >
+    Job Title / Keywords
+    <input
+      className="form-input keyword-input"
+      name="keywords"
+      type="text"
+    />
+  </label>
+  <label
+    className="search-label"
+  >
+    Desired Salary
+    <input
+      className="form-input salary-input"
+      name="salary"
+      type="text"
+    />
+  </label>
+  <label
+    className="search-label"
+  >
+    Location
+    <input
+      className="form-input location-input"
+      name="location"
+      type="text"
+    />
+  </label>
+  <label
+    className="search-label radius-label"
+  >
+    Location Radius
+    <input
+      className="form-input radius-input"
+      name="radius"
+      type="number"
+    />
+  </label>
+  <Link
+    disabled={true}
+    to="/results"
+  >
+    <button
+      className="form-btn"
+      disabled={true}
+      onClick={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#B2D1E4",
+        }
+      }
+    >
+      Submit
+    </button>
+  </Link>
+</form>
+`;
