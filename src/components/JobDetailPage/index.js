@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { cityThunk } from '../../thunks/cityThunk';
+import { cityThunk } from '../../thunks/cityThunks';
 import { getCityDetails } from '../../api/cityCalls';
 import './JobDetailPage.scss'
 

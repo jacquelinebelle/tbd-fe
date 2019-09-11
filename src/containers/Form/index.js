@@ -25,11 +25,9 @@ export class Form extends Component {
     if(!this.state.keywords){
       return
     }
-    this.props.jobsThunk(this.state);
     // this.props.jobsThunk(this.state);
 
-
-    // this.props.gatherJobs(mockJobs);
+    this.props.gatherJobs(mockJobs);
 
 
     // const jobs = await getJobs(this.state);
