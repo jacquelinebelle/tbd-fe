@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 import { scoreThunk } from '../../thunks/cityThunks';
 // import { getCityDetails } from '../../api/cityCalls';
 // import { gatherCities } from '../../actions';
-import loading from '../../assets/loading.gif';
+// import loading from '../../assets/loading.gif';
+import compass from '../../assets/blurry-compass.png'
 import './ResultsPage.scss';
 
 export class ResultsPage extends Component {
@@ -91,12 +92,12 @@ export class ResultsPage extends Component {
         return (
             <main className="results-page">
                 <section className="job-list">
+                    {this.props.loading && <img className="loading-image" alt="Loading... Please Wait" src={compass} />}
                     {this.displayJobs()}
                 </section>
-                <section className="city-list">
-                    {this.props.loading && <img src={loading} />}
+                {/* <section className="city-list">
                    {!this.props.loading && this.displayCities()}
-                </section>
+                </section> */}
             </main>
         )
     }
