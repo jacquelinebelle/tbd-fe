@@ -56,3 +56,25 @@
     grid-area: 3 / 1 / 4 / 3;
     width: 190px;
 }
+
+@media screen and (max-width: 960px) {
+    .search-form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        height: 350px;
+        padding: 20px 15px;
+    }
+
+    .form-input {
+        border: 1px solid black;
+    }
+
+    .radius-label {
+        margin: auto;
+    }
+
+    .radius-input {
+        width: 250px;
+    }
+  }
