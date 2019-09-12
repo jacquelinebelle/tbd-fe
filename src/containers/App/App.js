@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ResultsPage from '../ResultsPage';
 import './App.scss';
 import Form from '../Form/';
@@ -38,6 +38,7 @@ constructor() {
             exact path='/404' 
             component={NotFound} 
           />
+          <Route render={() => <Redirect to="/404" />} />
         </div>
       </Switch>
     )
