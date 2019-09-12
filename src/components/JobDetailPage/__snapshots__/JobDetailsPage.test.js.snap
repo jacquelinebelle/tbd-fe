@@ -26,6 +26,11 @@ exports[`Job Details Page should match snapshot 1`] = `
       />
       <p
         className="detail-snippet"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": undefined,
+          }
+        }
       />
       <p
         className="detail-job-update"
@@ -104,23 +109,9 @@ exports[`Job Details Page should match snapshot 1`] = `
       className="city-details"
     >
       <div
-        className="false detail-city-more"
-      >
-        <h4
-          className="detail-title"
-          onClick={[Function]}
-        >
-          All Details
-        </h4>
-        <section
-          className="city-details"
-        >
-          <div
-            className="shownDetail"
-            onClick={[Function]}
-          />
-        </section>
-      </div>
+        className="shownDetail"
+        onClick={[Function]}
+      />
     </section>
   </div>
 </article>

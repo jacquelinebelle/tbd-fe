@@ -82,9 +82,9 @@ export class ResultsPage extends Component {
                     {this.props.loading && <img className="loading-image" alt="Loading... Please Wait" src={compass} />}
                     {this.displayJobs()}
                 </section>
-                {/* <section className="city-list">
-                   {!this.props.loading && this.displayCities()}
-                </section> */}
+                {!this.props.loading && !this.props.jobs.length &&
+                    <h2 className='no-results'>NO RESULTS FOUND. CLICK THE LOGO TO SEARCH AGAIN.</h2>
+                }
             </main>
         )
     }
