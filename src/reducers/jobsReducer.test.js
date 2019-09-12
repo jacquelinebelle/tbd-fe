@@ -1,4 +1,4 @@
-import {jobsReducer, loading, error} from './jobsReducer';
+import {jobsReducer, loading, error, currentJob} from './jobsReducer';
 
 describe('jobsReducer', () => {
   it("should return the initial state", () => {
@@ -40,6 +40,28 @@ describe('jobsReducer', () => {
       type: "GOT_ERROR",
       message: expected
     });
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the an empty array from RESET_JOBS", () => {
+    const result = jobsReducer(undefined, {
+      type: "RESET_JOBS"
+    });
+    expect(result).toEqual([]);
+  });
+
+  it("should return the initial state", () => {
+    const expected = {title: 'student'};
+    const result = currentJob(undefined, {
+      type: "SET_CURRENT_JOB",
+      job: expected
+    });
+    expect(result).toEqual(expected);
+  });
+
+  it("should return the initial state", () => {
+    const expected = {};
+    const result = currentJob(undefined, {});
     expect(result).toEqual(expected);
   });
 

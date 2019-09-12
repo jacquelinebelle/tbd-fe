@@ -12,7 +12,7 @@ export class Login extends Component {
   }
 
   login = () => {
-    console.log(this.state)
+    return this.state
   }
 
   handleChange =(e) => {
