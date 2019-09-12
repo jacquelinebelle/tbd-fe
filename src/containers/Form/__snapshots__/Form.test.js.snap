@@ -46,12 +46,10 @@ exports[`Form should match snapshot 1`] = `
     />
   </label>
   <Link
-    disabled={true}
     to="/results"
   >
     <button
       className="form-btn"
-      disabled={true}
       onClick={[Function]}
       style={
         Object {

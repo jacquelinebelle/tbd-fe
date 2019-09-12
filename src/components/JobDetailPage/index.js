@@ -118,8 +118,7 @@ export class JobDetailPage extends Component {
                         <p className="detail-job-salary">
                             {currJob.salary}
                         </p>
-                        <p className="detail-snippet">
-                            {currJob.snippet}
+                        <p className="detail-snippet" dangerouslySetInnerHTML={{__html:currJob.snippet}}>
                         </p>
                         <p className="detail-job-update">
                             {currJob.updated}
