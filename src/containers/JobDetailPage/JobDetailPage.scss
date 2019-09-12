@@ -3,7 +3,7 @@
 .job-detail {
     background-color: white;
     box-shadow: 1px 1px 8px #B2D1E4;
-    min-height: 880px;
+    min-height: 800px;
     font-size: $small-text;
     margin: 32px auto;
     width: 85%;
@@ -43,8 +43,8 @@
 
 .detail-city-more {
     box-shadow: 1px 1px 8px #B2D1E4;
+    height: 80px;
     margin: 0;
-    // width: 800px;
     section {
         margin: auto;
     }
@@ -53,6 +53,7 @@
 .detail-title:hover {
     cursor: pointer;
     font-weight: 300;
+    vertical-align: middle;
 }
 
 .detail-title {
@@ -61,7 +62,8 @@
 }
 
 .false {
-    padding: 16px 0;
+    padding: 9px 0;
+    box-sizing: border-box;
     .city-scores {
         visibility: hidden;
     }
