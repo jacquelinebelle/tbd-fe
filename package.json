@@ -56,7 +56,9 @@
       "!src/scraper.js",
       "!src/reducers/index.js",
       "!src/serviceWorker.js",
-      "!src/mockData/*"
+      "!src/mockData/*",
+      "!src/api/mockData.js",
+      "!src/components/CityPreview/*"
     ]
   }
 }
