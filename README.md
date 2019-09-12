@@ -1,12 +1,5 @@
-# Compass ([Live Site](https://master.d1unm2lt3lovzm.amplifyapp.com/))
-[![Build Status](https://travis-ci.org/jacquelinebelle/tbd-fe.svg?branch=master)](https://travis-ci.org/jacquelinebelle/tbd-fe)
-## Team Members
-| Name | Github | Team |
-|:----------------:|:----------------------------------:|:----------:|
-| David Hardy | https://github.com/davehardy632 | Back End |
-| DeMarcus Kirby | https://github.com/KirbyDD | Front End |
-| Jacqueline Moore | https://github.com/jacquelinebelle | Front End |
-| Patrick Goulding | https://github.com/pgoulding | Full Stack |
+![compassLogo-test1](https://user-images.githubusercontent.com/42919604/64807517-dc4ddb00-d584-11e9-9e13-1ffbee231c78.png)
+# [Live Site](https://master.d1unm2lt3lovzm.amplifyapp.com/)
 
 ## Description
 
@@ -14,6 +7,22 @@ This project was built for someone on the job market and considering moving to a
 
 This project was built with React, Redux as a PWA and Desktop site. 
 Tested with Jest/Mocha/Travis CI.
+
+## Emphasis of the Project
+
+Further knowledge on the following technologies/principles:
+
+- ReactJS
+- Redux
+- Thunks
+- JSX
+- Jest and Enzyme Testing
+- Fetch API's
+- Asynchronous JS and Testing
+- Router
+- GitHub Issues
+- SCSS
+- Trello Project Management Board
 
 ## Setup
 
@@ -32,6 +41,7 @@ npm install
 Run `npm start` in your terminal. Go to `http://localhost:3000/` and you should see a live version of the application if installed correctly.
 
 ## Testing
+[![Build Status](https://travis-ci.org/jacquelinebelle/tbd-fe.svg?branch=master)](https://travis-ci.org/jacquelinebelle/tbd-fe)
 
 Run `npm test` in your terminal if you would like to see the testing results.
 
@@ -54,22 +64,15 @@ Testing:
 
 <img width="885" alt="Screen Shot 2019-09-12 at 11 39 20 AM" src="https://user-images.githubusercontent.com/36940278/64807423-ad376980-d584-11e9-8eea-7ccce370c53b.png">
 
-## Emphasis of the Project
 
-Further knowledge on the following technologies/principles:
 
-- ReactJS
-- Redux
-- Thunks
-- JSX
-- Jest and Enzyme Testing
-- Fetch API's
-- Asynchronous JS and Testing
-- Router
-- GitHub Issues
-- SCSS
-- Trello Project Management Board
-
+## Team Members
+| Name | Github | Team |
+|:----------------:|:----------------------------------:|:----------:|
+| David Hardy | https://github.com/davehardy632 | Back End |
+| DeMarcus Kirby | https://github.com/KirbyDD | Front End |
+| Jacqueline Moore | https://github.com/jacquelinebelle | Front End |
+| Patrick Goulding | https://github.com/pgoulding | Full Stack |
 
 ### Making a Progressive Web App
 
