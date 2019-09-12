@@ -12,9 +12,17 @@
         margin: 8.5px 0;
     }
     button {
-        background-color: #91e5f0;
-        font-size: 1rem;
+        background-color: #B2D1E4;
+        border: none;
+        display: block;
+        font-size: 14px;
+        margin: 16px auto;
+        padding: 10px 0;
         width: 285px;
+    }
+    button:hover {
+        box-shadow: 1px 1px 8px #B2D1E4;
+        cursor: pointer;
     }
 }
 
