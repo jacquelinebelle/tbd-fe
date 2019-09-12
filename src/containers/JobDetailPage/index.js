@@ -99,15 +99,40 @@ export class JobDetailPage extends Component {
         this.setState({shownDetail:''})
     }
 
+    swapImage  =() => {
+        if(this.props.currentCity.city === undefined){
+            return (
+                <img 
+                    className="details-loading-image" 
+                    alt="Loading... Please Wait" 
+                    src={compass} 
+                />
+            ) 
+        } else if (this.props.currentCity.city !== undefined && this.props.currentCity.web === undefined) {
+            return (
+                <img 
+                    alt={"default vector city background"} 
+                    className="detail-img" 
+                    src={defaultCity} 
+                />
+            )
+        } else {
+            return (
+                <img 
+                    alt={this.props.currentCity.city + " background image of city"} className="detail-img" 
+                    src={this.props.currentCity.web} 
+                /> 
+            ) 
+        }
+    }
+
    render() {
         const { currentCity } = this.props;
         const { currJob } = this.state;
         return (
             <article className="job-detail">
                 {(currJob === undefined && !this.props.loading) && <Redirect to='/404'/>}
-                {(currentCity.city === undefined) && <img className="details-loading-image" alt="Loading... Please Wait" src={compass} />}
-                {(currentCity.city !== undefined) && currentCity.web && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
-                {!this.props.loading && !currentCity.web && <img alt={currentCity.city + " background image of city"} className="detail-img" src={defaultCity} />}
+                { this.swapImage() }
                 {(currentCity.city === undefined) && <h3 className="loading-city">One moment as we find details about this city.</h3>}
                     {(currentCity.city !== undefined) && <div className="detail-sections-container">
                     <section className="job-details-section">
