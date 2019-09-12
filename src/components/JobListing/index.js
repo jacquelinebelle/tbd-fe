@@ -13,7 +13,7 @@ export const JobListing = ({ lastModified, title, link, location, salary, compan
                 </a>
             </h3>
             <h5 className="job-location">{location}</h5>
-            <h5 className="job-salary">{type}: {salary || 'No salary provided.'}</h5>
+            <h5 className="job-salary">{type || "Type not Specified"}: {salary || 'No salary provided.'}</h5>
             <p className="job-company">{company}</p>
             <p className="job-description">{snippet}</p>
             <Link to={`/job/${id}`} >
