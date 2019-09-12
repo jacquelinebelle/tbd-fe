@@ -5,6 +5,7 @@ exports[`Job Details Page should match snapshot 1`] = `
   className="job-detail"
 >
   <img
+    alt="Mesa, AZ background image of city"
     className="detail-img"
     src="https://d13k13wj6adfdf.cloudfront.net/urban_areas/phoenix_web-92224752db.jpg"
   />
@@ -56,10 +57,10 @@ exports[`Job Details Page should match snapshot 1`] = `
   </div>
   <div
     className="false detail-city-more"
-    onClick={[Function]}
   >
     <h4
       className="detail-title"
+      onClick={[Function]}
     >
       All Scores
     </h4>
@@ -68,17 +69,59 @@ exports[`Job Details Page should match snapshot 1`] = `
     />
   </div>
   <div
-    className=" detail-city-more"
+    className="false detail-city-more"
     onClick={[Function]}
   >
     <h4
       className="detail-title"
     >
+      Salaries
+    </h4>
+    <section
+      className="salary-details"
+    >
+      <select
+        onChange={[Function]}
+      >
+        <option
+          value="default"
+        >
+          Pick a salary
+        </option>
+      </select>
+    </section>
+  </div>
+  <div
+    className="false detail-city-more"
+  >
+    <h4
+      className="detail-title"
+      onClick={[Function]}
+    >
       All Details
     </h4>
     <section
       className="city-details"
-    />
+    >
+      <div
+        className="false detail-city-more"
+      >
+        <h4
+          className="detail-title"
+          onClick={[Function]}
+        >
+          All Details
+        </h4>
+        <section
+          className="city-details"
+        >
+          <div
+            className="shownDetail"
+            onClick={[Function]}
+          />
+        </section>
+      </div>
+    </section>
   </div>
 </article>
 `;
