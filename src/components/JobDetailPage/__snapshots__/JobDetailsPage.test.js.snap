@@ -75,10 +75,10 @@ exports[`Job Details Page should match snapshot 1`] = `
   </div>
   <div
     className="false detail-city-more"
-    onClick={[Function]}
   >
     <h4
       className="detail-title"
+      onClick={[Function]}
     >
       Salaries
     </h4>
