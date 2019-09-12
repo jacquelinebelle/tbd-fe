@@ -31,7 +31,7 @@ describe("actions", () => {
     expect(result).toEqual(expectedAction);
   });
 
-  it("should have a type of GATHER_CITIES", () => {
+  it("should have a type of GOT_ERROR", () => {
     const messageData = "An Error has Occured";
     const expectedAction = {
       type: "GOT_ERROR",
@@ -58,6 +58,32 @@ describe("actions", () => {
       email
     };
     const result = actions.logout(email);
+    expect(result).toEqual(expectedAction);
+  });
+  
+  it("should have a type of RESET_JOBS", () => {
+    const expectedAction = {
+      type: "RESET_JOBS"
+    };
+    const result = actions.resetJobs();
+    expect(result).toEqual(expectedAction);
+  });
+  it("should have a type of LOGOUT", () => {
+    const job = {title: 'student'};
+    const expectedAction = {
+      type: "SET_CURRENT_JOB",
+      job
+    };
+    const result = actions.setCurrentJob(job);
+    expect(result).toEqual(expectedAction);
+  });
+  it("should have a type of LOGOUT", () => {
+    const city = {name:"Oak Cliff, TX"};
+    const expectedAction = {
+      type: "SET_CURRENT_CITY",
+      city
+    };
+    const result = actions.setCurrentCity(city);
     expect(result).toEqual(expectedAction);
   });
 });

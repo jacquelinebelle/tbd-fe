@@ -16,6 +16,7 @@ describe("Job Details Page", () => {
       id={2489493276763186000}/>
     )
   })
+  
   it('should match snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
