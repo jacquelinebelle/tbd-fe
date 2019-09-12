@@ -12,7 +12,7 @@ export class JobDetailPage extends Component {
             cityDetails: [],
             scores: false,
             details: false,
-            salaries:false,
+            showSalaries:false,
             shownDetail: ''
         }
     }
@@ -133,26 +133,28 @@ export class JobDetailPage extends Component {
                 </div>
                 <div 
                     className={`${this.state.details} detail-city-more`} 
-                    onClick={(e) => this.handleState(e, 'salary-details')}>
+                    onClick={(e) => this.handleState(e, 'showSalaries')}>
                     <h4 className="detail-title">Salaries</h4>
+                    {this.state.showSalaries && 
                     <section 
-                        className="salary-details">
-                        <select 
-                            onChange={this.changeSalary}>
-                            <option value="default">Pick a salary</option>
-                            {this.pickSalaries()}
-                        </select>
+                        className="salaryDetails">
+                                <select 
+                                    onChange={this.changeSalary}>
+                                    <option value="default">Pick a salary</option>
+                                    {this.pickSalaries()}
+                                </select>
                         { this.state.salary && 
                         <>
                             <h3>{this.state.salary.job.title}</h3>
-                        <div className='salary-info'>
-                            <p><strong>25th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
-                            <p><strong>50th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
-                            <p><strong>75th Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
-                        </div>
-                            </>
+                            <div className='salary-info'>
+                                <p><strong>25th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
+                                <p><strong>50th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
+                                <p><strong>75th Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
+                            </div>
+                        </>
                         }
                     </section>
+                    }
                 </div>
                 <div className={`${this.state.details} detail-city-more`}>
                     <h4 className="detail-title" onClick={(e) => this.handleState(e, 'details')}>All Details</h4>

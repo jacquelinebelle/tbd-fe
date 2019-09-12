@@ -82,19 +82,6 @@ exports[`Job Details Page should match snapshot 1`] = `
     >
       Salaries
     </h4>
-    <section
-      className="salary-details"
-    >
-      <select
-        onChange={[Function]}
-      >
-        <option
-          value="default"
-        >
-          Pick a salary
-        </option>
-      </select>
-    </section>
   </div>
   <div
     className="false detail-city-more"
