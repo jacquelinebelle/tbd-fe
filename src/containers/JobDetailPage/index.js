@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { cityThunk } from '../../thunks/cityThunks';
 import { getCityDetails, getCitySalaries } from '../../api/cityCalls';
 import compass from '../../assets/blurry-compass.png'
@@ -22,12 +23,14 @@ export class JobDetailPage extends Component {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
 
+        if (currJob === undefined) {
+            return;
+        }
+
         const cityDetails = await getCityDetails(this.props.currentCity);
 
         this.props.cityThunk(currJob.location);
-        // console.log(details)
         const  salaries = await getCitySalaries("Denver")
-        console.log(await salaries)
         this.setState({ currJob, cityDetails, salaries });
     }
 
@@ -100,9 +103,10 @@ export class JobDetailPage extends Component {
    render() {
         const { currentCity } = this.props;
         const { currJob } = this.state;
-   
+        console.log(currJob.location)
         return (
             <article className="job-detail">
+                {(currJob.location === undefined) && <Redirect to='/404'/>}
                 {(currentCity.city === undefined) && <img className="details-loading-image" alt="Loading... Please Wait" src={compass} />}
                 {(currentCity.city !== undefined) && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
                 {(currentCity.city === undefined) && <h3 className="loading-city">One moment as we find details about this city.</h3>}

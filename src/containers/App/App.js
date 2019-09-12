@@ -5,6 +5,7 @@ import './App.scss';
 import Form from '../Form/';
 import Header from '../Header';
 import JobDetailPage from '../../containers/JobDetailPage';
+import NotFound from '../../components/NotFound';
 // import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
 export class App extends Component {
@@ -33,6 +34,10 @@ constructor() {
                 (id) => (<JobDetailPage id={id.location.pathname} history={id.history} />)
             }
             />
+            <Route 
+            exact path='/404' 
+            component={NotFound} 
+          />
         </div>
       </Switch>
     )
