@@ -133,8 +133,11 @@ export class JobDetailPage extends Component {
                 </div>
                 <div 
                     className={`${this.state.details} detail-city-more`} 
-                    onClick={(e) => this.handleState(e, 'showSalaries')}>
-                    <h4 className="detail-title">Salaries</h4>
+                    >
+                    <h4 
+                    className="detail-title"
+                    onClick={(e) => this.handleState(e, 'showSalaries')}
+                    >Salaries</h4>
                     {this.state.showSalaries && 
                     <section 
                         className="salaryDetails">
