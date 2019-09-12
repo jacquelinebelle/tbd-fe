@@ -103,14 +103,3 @@ exports[`Job Details Page should match snapshot 1`] = `
   </div>
 </article>
 `;
-
-exports[`Job Details Page should match snapshot 2`] = `
-Object {
-  "cityDetails": Array [],
-  "currJob": Object {},
-  "details": false,
-  "scores": false,
-  "showSalaries": false,
-  "shownDetail": "",
-}
-`;

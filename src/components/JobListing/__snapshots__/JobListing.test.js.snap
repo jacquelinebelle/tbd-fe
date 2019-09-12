@@ -10,21 +10,16 @@ exports[`Job Listing should match snapshot 1`] = `
     Updated on: 
     01/26/2020
   </p>
-  <strong>
-    <h3
-      className="job-title"
-    >
-      FrontEnd Engineer
-    </h3>
-  </strong>
-  <Link
-    to="/job/undefined"
+  <h3
+    className="job-title"
   >
-    <button>
-      Learn More About 
-      Dallas, TX
-    </button>
-  </Link>
+    FrontEnd Engineer
+  </h3>
+  <h5
+    className="job-location"
+  >
+    Dallas, TX
+  </h5>
   <h5
     className="job-salary"
   >
@@ -45,5 +40,13 @@ exports[`Job Listing should match snapshot 1`] = `
       }
     }
   />
+  <Link
+    to="/job/undefined"
+  >
+    <button>
+      Learn More About 
+      Dallas, TX
+    </button>
+  </Link>
 </article>
 `;
