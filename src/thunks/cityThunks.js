@@ -1,5 +1,5 @@
-import { gatherCities, setCurrentCity, isLoading, gotError } from '../actions';
-import { getCityDetails, getCityImages, getCityScores } from '../api/cityCalls';
+import { setCurrentCity, isLoading, gotError } from '../actions';
+import { getCityImages, getCityScores } from '../api/cityCalls';
 
 export const cityThunk = (city) => {
     return async (dispatch) => {

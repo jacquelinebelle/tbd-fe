@@ -141,7 +141,7 @@
     p {
         margin: 10px 30px;
         width: 23%;
-        transition-delay: 1s; 
+        transition-delay: 1s;
     }
 }
 
@@ -168,6 +168,10 @@
     font-weight: 900;
 }
 
+.salaryDetails {
+  text-align: center;
+}
+
 @media screen and (max-width: 550px) {
     .detail-sections-container{
         flex-direction: column;
@@ -180,4 +184,3 @@
         padding:0;
     }
 }
-

@@ -1,6 +1,6 @@
 import { gatherJobs, isLoading, gotError, resetJobs } from '../actions';
 import { getJobs } from '../api/jobCalls';
-import { getCityscores, getCityImages } from '../api/cityCalls';
+// import { getCityscores, getCityImages } from '../api/cityCalls';
 
 export const jobsThunk = (params) => {
     return async (dispatch) => {

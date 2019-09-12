@@ -62,8 +62,7 @@ export class Form extends Component {
         <button 
           className='form-btn' 
           onClick={this.handleSubmit}
-          style={this.state.keywords && {backgroundColor: '#1e91ca'} || !this.state.keywords && {backgroundColor: '#B2D1E4'}}
-      
+          style={this.state.keywords ? {backgroundColor: '#1e91ca'} :{backgroundColor: '#B2D1E4'}}
           >
             Submit
         </button>
