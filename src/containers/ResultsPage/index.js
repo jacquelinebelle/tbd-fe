@@ -75,6 +75,10 @@ export class ResultsPage extends Component {
         })
     }
 
+    seeMoreJobs = (pageNum) => {
+        
+    }
+
     render() {
         return (
             <main className="results-page">
