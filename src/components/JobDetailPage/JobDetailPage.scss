@@ -7,6 +7,7 @@
     font-size: $small-text;
     margin: 32px auto;
     width: 85%;
+    max-width: 1000px;
 }
 
 .detail-img {
@@ -66,6 +67,8 @@
         visibility: hidden;
     }
 }
+
+
 
 .true {
     box-sizing: border-box;
@@ -169,10 +172,10 @@
 }
 
 .salaryDetails {
-  text-align: center;
+    text-align: center;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
     .detail-sections-container{
         flex-direction: column;
         padding:10px;
@@ -183,4 +186,20 @@
         border-right: 0;
         padding:0;
     }
+<<<<<<< HEAD
+
+    .salary-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .city-details {
+        display: block;
+    }
 }
+
+
+
+=======
+}
+>>>>>>> d37da5f5e82aa75d068cb4dcd3a5f42aaad11428
