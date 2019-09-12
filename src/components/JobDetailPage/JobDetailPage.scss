@@ -144,7 +144,7 @@
     p {
         margin: 10px 30px;
         width: 23%;
-        transition-delay: 1s; 
+        transition-delay: 1s;
     }
 }
 
@@ -193,3 +193,11 @@
     }
 }
 
+
+
+.salaryDetails {
+
+  button, input, select, h3 {
+      text-align: center;
+  }
+}
