@@ -22,12 +22,12 @@ export class JobDetailPage extends Component {
     componentDidMount = async () => {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
-
-        if (currJob === undefined) {
+        const cityDetails = await getCityDetails(this.props.currentCity);
+        
+        if ((currJob === undefined) && (!this.props.loading)) {
+            console.log(currJob)
             return;
         }
-
-        const cityDetails = await getCityDetails(this.props.currentCity);
 
         this.props.cityThunk(currJob.location);
         const  salaries = await getCitySalaries("Denver")
@@ -103,10 +103,9 @@ export class JobDetailPage extends Component {
    render() {
         const { currentCity } = this.props;
         const { currJob } = this.state;
-        console.log(currJob.location)
         return (
             <article className="job-detail">
-                {(currJob.location === undefined) && <Redirect to='/404'/>}
+                {(currJob === undefined && !this.props.loading) && <Redirect to='/404'/>}
                 {(currentCity.city === undefined) && <img className="details-loading-image" alt="Loading... Please Wait" src={compass} />}
                 {(currentCity.city !== undefined) && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
                 {(currentCity.city === undefined) && <h3 className="loading-city">One moment as we find details about this city.</h3>}
