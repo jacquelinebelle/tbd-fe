@@ -22,10 +22,8 @@ export class Form extends Component {
   }
 
   handleSubmit = async () => {
-    if(!this.state.keywords){
-      return
-    }
     // this.props.jobsThunk(this.state);
+
 
     this.props.gatherJobs(mockJobs);
 
@@ -67,12 +65,12 @@ export class Form extends Component {
             name='radius' 
           />
         </label>
-        <Link to="/results" disabled={!this.state.keywords}>
+        <Link to="/results" >
         <button 
           className='form-btn' 
           onClick={this.handleSubmit}
           style={this.state.keywords && {backgroundColor: '#1e91ca'} || !this.state.keywords && {backgroundColor: '#B2D1E4'}}
-          disabled={!this.state.keywords}
+      
           >
             Submit
         </button>

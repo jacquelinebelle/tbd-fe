@@ -1,12 +1,12 @@
 @import '../../assets/variables.scss';
 
 .job-detail {
+    background-color: white;
     box-shadow: 1px 1px 8px #B2D1E4;
     min-height: 880px;
     font-size: $small-text;
     margin: 32px auto;
     width: 800px;
-    background-color: #fff;
 }
 
 .detail-img {
@@ -25,6 +25,7 @@
 
 .job-details-section,
 .city-details-section {
+    
     height: 400px;
     text-align: center;
     width: 400px;
@@ -44,6 +45,9 @@
     box-shadow: 1px 1px 8px #B2D1E4;
     margin: 0;
     width: 800px;
+    section {
+        margin: auto;
+    }
 }
 
 .detail-title:hover {
@@ -85,4 +89,46 @@
         text-shadow: 1px 1px 20px #FE1E1E;
     }
 }
+
+.city-details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 8px;
+
+}
+
+.detail-label {
+    align-items: center;
+    border: 0.5px solid #B2D1E4;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    margin: 8px;
+    padding: 10px 0;
+    text-align: center;
+    p {
+        margin: 0;
+    }
+}
+
+
+.true-label {
+    min-height: 200px;
+    width: 800px;
+    margin: 0 auto;
+}
+
+.detail-label:hover {
+    box-shadow: 1px 1px 8px #B2D1E4;
+    cursor: pointer;
+}
+
+.shownDetail {
+    grid-column: 1 / span 4
+}
+
+.shownDetail:hover {
+    cursor: pointer;
+}
+
 

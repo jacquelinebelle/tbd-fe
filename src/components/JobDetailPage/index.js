@@ -9,18 +9,21 @@ export class JobDetailPage extends Component {
         super();
         this.state = {
             currJob: {},
-            details: [],
-            scores: false
+            cityDetails: [],
+            scores: false,
+            details: false,
+            shownDetail: ''
         }
     }
 
     componentDidMount = async () => {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
-        const details = await getCityDetails(this.props.currentCity);
-        this.setState({ currJob, details });
+        this.setState({ currJob });
+        const cityDetails = await getCityDetails(this.props.currentCity);
+        this.setState({ cityDetails });
+
         this.props.cityThunk(currJob.location);
-        // console.log(details)
         
     }
 
@@ -37,15 +40,30 @@ export class JobDetailPage extends Component {
                 scoreType = 'bad'
             }
             return <p className={`${scoreType}-score`}>{cat.name}: {parseFloat(cat.score_out_of_10).toFixed(2)}/10</p>
-        })
+        });
     }
 
-   displayDetails = async () => {
-    //     const details = await getCityDetails(this.props.currentCity);
-    //    console.log(details)
-    //     return details.map(det => {
-    //         return <p>{det.data[0].label}</p>
-    //     })
+   displayDetails = () => {
+       return this.state.cityDetails.map(det => {
+            return <div className={`detail-label`} onClick={(e, label) => this.selectDetail(e, det.label)}>
+                <p>{det.label}</p>
+            </div>
+        });
+    }
+
+    selectDetail = (e, label) => {
+        this.setState({ shownDetail: label })
+
+    }
+
+    revealDetails = () => {
+        let label = this.state.shownDetail
+        const selectedDetail = this.state.cityDetails.find(det => det.label === label);
+        return selectedDetail.data.map(datas => {
+            let dataValue = Object.keys(datas).find(key => key.split('_').includes('value'));
+            console.log(dataValue)
+            return <p className={`detail-data`}>{datas.label}: {datas[dataValue]}</p>
+        })
     }
 
    render() {
@@ -79,16 +97,19 @@ export class JobDetailPage extends Component {
                         </p>
                     </section>
                 </div>
-                <div className={`${this.state.scores} detail-city-more`} onClick={(e, scores) => this.handleState(e, 'scores')}>
-                    <h4 className="detail-title">All Scores</h4>
+                <div className={`${this.state.scores} detail-city-more`} >
+                    <h4 className="detail-title" onClick={(e, scores) => this.handleState(e, 'scores')}>All Scores</h4>
                     <section className="city-scores">
                         {this.state.scores && this.displayScores()}
                     </section>
                 </div>
-                <div className={`${this.state.details} detail-city-more`} onClick={(e, details) => this.handleState(e, 'details')}>
-                    <h4 className="detail-title">All Details</h4>
-                    <section className="city-details">
-                        {/* {this.displayDetails()} */}
+                <div className={`${this.state.details} detail-city-more`}>
+                    <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
+                    <section className='city-details'>
+                        {(this.state.details && this.state.shownDetail === '') && this.displayDetails()}
+                        <div className="shownDetail" onClick={(e, label) => this.selectDetail(e, '')}>
+                            {this.state.shownDetail && this.revealDetails()}
+                        </div>
                     </section>
                 </div>
             </article>
@@ -97,7 +118,6 @@ export class JobDetailPage extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-    // setCurrentCity: city => dispatch(setCurrentCity(city)),
     cityThunk: city => dispatch(cityThunk(city))
   });
 
