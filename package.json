@@ -1,5 +1,5 @@
 {
-  "name": "tbd-fe",
+  "name": "compass-job-search",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -58,7 +58,8 @@
       "!src/serviceWorker.js",
       "!src/mockData/*",
       "!src/api/mockData.js",
-      "!src/components/CityPreview/*"
+      "!src/components/CityPreview/*",
+      "!src/components/CitiesPage/*"
     ]
   }
 }

@@ -175,7 +175,33 @@
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+.loading-city {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.details-loading-image {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.details-loading-image{
+    animation: roll 3s infinite;
+    transform: rotate(30deg);
+    margin: auto;
+}
+
+@keyframes roll {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 550px) {
     .detail-sections-container{
         flex-direction: column;
         padding:10px;
@@ -186,7 +212,6 @@
         border-right: 0;
         padding:0;
     }
-<<<<<<< HEAD
 
     .salary-info {
         flex-direction: column;
@@ -197,9 +222,3 @@
         display: block;
     }
 }
-
-
-
-=======
-}
->>>>>>> d37da5f5e82aa75d068cb4dcd3a5f42aaad11428

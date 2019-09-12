@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import ResultsPage from '../ResultsPage';
 import './App.scss';
 import Form from '../Form/';
 import Header from '../Header';
-import JobDetailPage from '../../components/JobDetailPage';
+import JobDetailPage from '../../containers/JobDetailPage';
+import CitiesPage from '../../components/CitiesPage/CitiesPage';
+import NotFound from '../../components/NotFound';
 // import JobListingContainer from '../../components/JobListingContainer/JobListingContainer';
 
 export class App extends Component {
@@ -29,10 +31,19 @@ constructor() {
             exact path='/results' 
             component={ResultsPage} 
           />
+          <Route
+            path="/cities"
+            component={CitiesPage}
+            />
           <Route exact path={`/job/:id`} render={
                 (id) => (<JobDetailPage id={id.location.pathname} history={id.history} />)
             }
             />
+            <Route 
+            exact path='/404' 
+            component={NotFound} 
+          />
+          <Route render={() => <Redirect to="/404" />} />
         </div>
       </Switch>
     )
