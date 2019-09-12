@@ -3,10 +3,9 @@ export const gatherJobs = jobs => ({
   jobs
 });
 
-// export const gatherCities = cities => ({
-//   type: 'GATHER_CITIES',
-//   cities
-// });
+export const resetJobs = () => ({
+  type: 'RESET_JOBS'
+});
 
 export const gatherCities = city => ({
   type: 'GATHER_CITIES',

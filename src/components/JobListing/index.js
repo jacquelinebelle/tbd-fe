@@ -6,19 +6,18 @@ import './JobListing.scss'
 export const JobListing = ({ lastModified, title, link, location, salary, company, snippet, type, id, handleSeeMore}) => {
     return (
         <article className="job">
-            <p className="job-date">Last modified: {lastModified}</p>
+            <p className="job-date">Updated on: {lastModified}</p>
+                <strong>
             <h3 className="job-title">
-                <a className="job-title" href={link}>
                     {title}
-                </a>
             </h3>
-            <h5 className="job-location">{location}</h5>
-            <h5 className="job-salary">{type}: {salary || 'No salary provided.'}</h5>
-            <p className="job-company">{company}</p>
-            <p className="job-description">{snippet}</p>
+                </strong>
             <Link to={`/job/${id}`} >
-                <button>see more</button>
+                <button>Learn More About {location}</button>
             </Link>
+            <h5 className="job-salary">{type || "Type not Specified"}: {salary || 'No salary provided.'}</h5>
+            <p className="job-company">{company}</p>
+            <p className="job-description" dangerouslySetInnerHTML={{__html:snippet}}></p>
         </article>
     )
 }

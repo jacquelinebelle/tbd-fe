@@ -7,24 +7,24 @@ exports[`Job Listing should match snapshot 1`] = `
   <p
     className="job-date"
   >
-    Last modified: 
+    Updated on: 
     01/26/2020
   </p>
-  <h3
-    className="job-title"
-  >
-    <a
+  <strong>
+    <h3
       className="job-title"
-      href="randomlink.com"
     >
       FrontEnd Engineer
-    </a>
-  </h3>
-  <h5
-    className="job-location"
+    </h3>
+  </strong>
+  <Link
+    to="/job/undefined"
   >
-    Dallas, TX
-  </h5>
+    <button>
+      Learn More About 
+      Dallas, TX
+    </button>
+  </Link>
   <h5
     className="job-salary"
   >
@@ -39,15 +39,11 @@ exports[`Job Listing should match snapshot 1`] = `
   </p>
   <p
     className="job-description"
-  >
-    This is a random snippet
-  </p>
-  <Link
-    to="/job/undefined"
-  >
-    <button>
-      see more
-    </button>
-  </Link>
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "This is a random snippet",
+      }
+    }
+  />
 </article>
 `;

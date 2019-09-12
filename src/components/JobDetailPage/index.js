@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { cityThunk } from '../../thunks/cityThunks';
-import { getCityDetails } from '../../api/cityCalls';
+import { getCityDetails, getCitySalaries } from '../../api/cityCalls';
 import './JobDetailPage.scss'
 
 export class JobDetailPage extends Component {
@@ -12,6 +12,7 @@ export class JobDetailPage extends Component {
             cityDetails: [],
             scores: false,
             details: false,
+            showSalaries:false,
             shownDetail: ''
         }
     }
@@ -19,12 +20,13 @@ export class JobDetailPage extends Component {
     componentDidMount = async () => {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
-        this.setState({ currJob });
         const cityDetails = await getCityDetails(this.props.currentCity);
-        this.setState({ cityDetails });
 
         this.props.cityThunk(currJob.location);
-        
+        // console.log(details)
+        const  salaries = await getCitySalaries("Denver")
+        console.log(await salaries)
+        this.setState({ currJob, cityDetails, salaries });
     }
 
     handleState = (e, key) => {
@@ -43,6 +45,18 @@ export class JobDetailPage extends Component {
         });
     }
 
+    pickSalaries =() => {
+        if(this.state.salaries) {
+            return this.state.salaries.map(salary => {
+                return (
+                    <option value={salary.job.id}>
+                        {salary.job.title}
+                    </option>
+                ) 
+            })
+        }
+    }
+
    displayDetails = () => {
        return this.state.cityDetails.map(det => {
             return <div className={`detail-label`} onClick={(e, label) => this.selectDetail(e, det.label)}>
@@ -53,17 +67,32 @@ export class JobDetailPage extends Component {
 
     selectDetail = (e, label) => {
         this.setState({ shownDetail: label })
-
     }
 
     revealDetails = () => {
         let label = this.state.shownDetail
         const selectedDetail = this.state.cityDetails.find(det => det.label === label);
-        return selectedDetail.data.map(datas => {
-            let dataValue = Object.keys(datas).find(key => key.split('_').includes('value'));
-            console.log(dataValue)
-            return <p className={`detail-data`}>{datas.label}: {datas[dataValue]}</p>
-        })
+        
+        return (
+            selectedDetail.data.map(datas => {
+                let dataValue = Object.keys(datas).find(key => key.split('_').includes('value'));
+                console.log(dataValue)
+                return <p className={`detail-data`}>{datas.label}: {datas[dataValue]}</p>
+            })
+        )
+    }
+
+    changeSalary = (e) => {
+        if(e.target.value !== "default") {
+            const salary = this.state.salaries.find(foundSal => {
+                return foundSal.job.id === e.target.value
+            })
+            this.setState({salary})
+        }
+    }
+
+    hideDetails =() => {
+        this.setState({shownDetail:''})
     }
 
    render() {
@@ -79,8 +108,7 @@ export class JobDetailPage extends Component {
                         <p className="detail-job-salary">
                             {currJob.salary}
                         </p>
-                        <p className="detail-snippet">
-                            {currJob.snippet}
+                        <p className="detail-snippet" dangerouslySetInnerHTML={{__html:currJob.snippet}}>
                         </p>
                         <p className="detail-job-update">
                             {currJob.updated}
@@ -103,11 +131,37 @@ export class JobDetailPage extends Component {
                         {this.state.scores && this.displayScores()}
                     </section>
                 </div>
+                <div 
+                    className={`${this.state.details} detail-city-more`} 
+                    onClick={(e) => this.handleState(e, 'showSalaries')}>
+                    <h4 className="detail-title">Salaries</h4>
+                    {this.state.showSalaries && 
+                    <section 
+                        className="salaryDetails">
+                                <select 
+                                    onChange={this.changeSalary}>
+                                    <option value="default">Pick a salary</option>
+                                    {this.pickSalaries()}
+                                </select>
+                        { this.state.salary && 
+                        <>
+                            <h3>{this.state.salary.job.title}</h3>
+                            <div className='salary-info'>
+                                <p><strong>25th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_25).toFixed(2)}</p>
+                                <p><strong>50th Salary Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_50).toFixed(2)}</p>
+                                <p><strong>75th Percentile:</strong> ${parseFloat(this.state.salary.salary_percentiles.percentile_75).toFixed(2)}</p>
+                            </div>
+                        </>
+                        }
+                    </section>
+                    }
+                </div>
                 <div className={`${this.state.details} detail-city-more`}>
-                    <h4 className="detail-title" onClick={(e, details) => this.handleState(e, 'details')}>All Details</h4>
+                    <h4 className="detail-title" onClick={(e) => this.handleState(e, 'details')}>All Details</h4>
                     <section className='city-details'>
                         {(this.state.details && this.state.shownDetail === '') && this.displayDetails()}
-                        <div className="shownDetail" onClick={(e, label) => this.selectDetail(e, '')}>
+                        <div className="shownDetail" onClick={(e) => this.selectDetail(e, '')}>
+                            {this.state.shownDetail && <button onClick={this.hideDetails}>Go Back</button>}
                             {this.state.shownDetail && this.revealDetails()}
                         </div>
                     </section>

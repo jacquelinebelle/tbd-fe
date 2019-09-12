@@ -51,3 +51,25 @@ export const getCityScores = async (city) => {
         throw Error(error.message)
     }
 }
+
+
+export const getCitySalaries = async (city) => {
+    const serverUrl = 'https://radiant-peak-49102.herokuapp.com/api/v1/urban_area/salaries'
+    try {
+        const options = {
+            method:"GET",
+            headers: {
+                "Content-Type": "application/json",
+                location: city
+            }
+        }
+        const response = await fetch(serverUrl, options)
+            if(!response.ok) {
+                throw Error(response.error)
+            }
+        const results = await response.json()
+        return results
+    } catch (error) {
+        throw Error (error.error)
+    }
+}

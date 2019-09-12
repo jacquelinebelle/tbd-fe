@@ -5,7 +5,7 @@ import './Form.scss';
 import { gatherJobs } from '../../actions';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {mockJobs} from '../../api/mockData';
+// import {mockJobs} from '../../api/mockData';
 
 export class Form extends Component {
   constructor() {
@@ -22,14 +22,7 @@ export class Form extends Component {
   }
 
   handleSubmit = async () => {
-    // this.props.jobsThunk(this.state);
-
-
-    this.props.gatherJobs(mockJobs);
-
-
-    // const jobs = await getJobs(this.state);
-    // this.props.setJobs(await jobs);
+    this.props.jobsThunk(this.state);
   }
 
   render() {
@@ -81,7 +74,7 @@ export class Form extends Component {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  // jobsThunk: params => dispatch(jobsThunk(params))
+  jobsThunk: params => dispatch(jobsThunk(params)),
   gatherJobs: jobs => dispatch(gatherJobs(jobs))
 });
 
