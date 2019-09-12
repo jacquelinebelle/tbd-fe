@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { cityThunk } from '../../thunks/cityThunks';
 import { getCityDetails, getCitySalaries } from '../../api/cityCalls';
+import compass from '../../assets/blurry-compass.png'
 import './JobDetailPage.scss'
 
 export class JobDetailPage extends Component {
@@ -20,6 +21,7 @@ export class JobDetailPage extends Component {
     componentDidMount = async () => {
         const id = parseInt(this.props.id.split('/')[2]);
         const currJob = this.props.jobs.find(job => job.id === id);
+
         const cityDetails = await getCityDetails(this.props.currentCity);
 
         this.props.cityThunk(currJob.location);
@@ -98,10 +100,13 @@ export class JobDetailPage extends Component {
    render() {
         const { currentCity } = this.props;
         const { currJob } = this.state;
+   
         return (
             <article className="job-detail">
-                <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />
-                <div className="detail-sections-container">
+                {(currentCity.city === undefined) && <img className="details-loading-image" alt="Loading... Please Wait" src={compass} />}
+                {(currentCity.city !== undefined) && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
+                {(currentCity.city === undefined) && <h3 className="loading-city">One moment as we find details about this city.</h3>}
+                    {(currentCity.city !== undefined) && <div className="detail-sections-container">
                     <section className="job-details-section">
                         <h3 className="details-job-title">{currJob.title}</h3>
                         <a href={currJob.link}>Link to the listing.</a>
@@ -124,7 +129,7 @@ export class JobDetailPage extends Component {
                             {`Overal Teleport Score: ${parseFloat(currentCity.teleport_city_score).toFixed(2)}`}
                         </p>
                     </section>
-                </div>
+                </div>}
                 <div className={`${this.state.scores} detail-city-more`} >
                     <h4 className="detail-title" onClick={(e, scores) => this.handleState(e, 'scores')}>All Scores</h4>
                     <section className="city-scores">
@@ -175,9 +180,10 @@ export const mapDispatchToProps = dispatch => ({
     cityThunk: city => dispatch(cityThunk(city))
   });
 
-export const mapStateToProps = ({ jobs, currentCity }) => ({
+export const mapStateToProps = ({ jobs, currentCity, loading }) => ({
     jobs,
-    currentCity
+    currentCity,
+    loading
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(JobDetailPage);
