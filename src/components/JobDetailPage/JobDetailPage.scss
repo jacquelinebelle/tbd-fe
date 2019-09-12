@@ -171,6 +171,12 @@
     font-weight: 900;
 }
 
+.salaryDetails {
+    button, input, select, h3 {
+    text-align: center;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .detail-sections-container{
         flex-direction: column;
@@ -195,9 +201,3 @@
 
 
 
-.salaryDetails {
-
-  button, input, select, h3 {
-      text-align: center;
-  }
-}
