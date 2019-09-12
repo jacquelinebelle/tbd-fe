@@ -76,7 +76,6 @@ export class JobDetailPage extends Component {
         return (
             selectedDetail.data.map(datas => {
                 let dataValue = Object.keys(datas).find(key => key.split('_').includes('value'));
-                console.log(dataValue)
                 return <p className={`detail-data`}>{datas.label}: {datas[dataValue]}</p>
             })
         )

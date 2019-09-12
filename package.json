@@ -58,7 +58,8 @@
       "!src/serviceWorker.js",
       "!src/mockData/*",
       "!src/api/mockData.js",
-      "!src/components/CityPreview/*"
+      "!src/components/CityPreview/*",
+      "!src/components/CitiesPage/*"
     ]
   }
 }

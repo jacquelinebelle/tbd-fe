@@ -30,6 +30,10 @@ exports[`App should match snapshot 1`] = `
       path="/results"
     />
     <Route
+      component={[Function]}
+      path="/cities"
+    />
+    <Route
       exact={true}
       path="/job/:id"
       render={[Function]}

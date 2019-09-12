@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cities Page SHould match the snapshot 1`] = `
+<div>
+  <a
+    class="teleport-widget-link"
+    href="https://teleport.org/cities/belize-city/"
+  >
+    Life quality score - Belize City
+  </a>
+  <script
+    async={true}
+    class="teleport-widget-script"
+    data-height="977"
+    data-max-width="770"
+    data-url="https://teleport.org/cities/belize-city/widget/scores/?currency=USD"
+    src="https://teleport.org/assets/firefly/widget-snippet.min.js"
+  />
+</div>
+`;
