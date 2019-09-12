@@ -5,7 +5,7 @@ import { cityThunk } from '../../thunks/cityThunks';
 import { getCityDetails, getCitySalaries } from '../../api/cityCalls';
 import compass from '../../assets/blurry-compass.png'
 import './JobDetailPage.scss'
-
+import defaultCity from '../../assets/defaultCity.jpg'
 export class JobDetailPage extends Component {
     constructor() {
         super();
@@ -106,7 +106,8 @@ export class JobDetailPage extends Component {
             <article className="job-detail">
                 {(currJob === undefined && !this.props.loading) && <Redirect to='/404'/>}
                 {(currentCity.city === undefined) && <img className="details-loading-image" alt="Loading... Please Wait" src={compass} />}
-                {(currentCity.city !== undefined) && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
+                {(currentCity.city !== undefined) && currentCity.web && <img alt={currentCity.city + " background image of city"} className="detail-img" src={currentCity.web} />}
+                {!this.props.loading && !currentCity.web && <img alt={currentCity.city + " background image of city"} className="detail-img" src={defaultCity} />}
                 {(currentCity.city === undefined) && <h3 className="loading-city">One moment as we find details about this city.</h3>}
                     {(currentCity.city !== undefined) && <div className="detail-sections-container">
                     <section className="job-details-section">

@@ -3,11 +3,14 @@
 .job-detail {
     background-color: white;
     box-shadow: 1px 1px 8px #B2D1E4;
-    min-height: 880px;
     font-size: $small-text;
     margin: 32px auto;
     width: 85%;
     max-width: 1000px;
+}
+
+h4{
+    margin: 0;
 }
 
 .detail-img {
@@ -45,7 +48,7 @@
 .detail-city-more {
     box-shadow: 1px 1px 8px #B2D1E4;
     margin: 0;
-    // width: 800px;
+    min-height: 80px;
     section {
         margin: auto;
     }
@@ -54,6 +57,7 @@
 .detail-title:hover {
     cursor: pointer;
     font-weight: 300;
+    vertical-align: middle;
 }
 
 .detail-title {
@@ -62,7 +66,8 @@
 }
 
 .false {
-    padding: 16px 0;
+    padding: 9px 0;
+    box-sizing: border-box;
     .city-scores {
         visibility: hidden;
     }
@@ -72,7 +77,8 @@
 
 .true {
     box-sizing: border-box;
-    min-height: fit-content;
+    min-height: 80px;
+    padding: 10px;
     .city-scores {
         visibility: visible;
     }
@@ -185,7 +191,6 @@
     margin: 0 auto;
 }
 
-
 .details-loading-image{
     animation: roll 3s infinite;
     transform: rotate(30deg);
@@ -194,10 +199,10 @@
 
 @keyframes roll {
     0% {
-      transform: rotate(0);
+        transform: rotate(0);
     }
     100% {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
