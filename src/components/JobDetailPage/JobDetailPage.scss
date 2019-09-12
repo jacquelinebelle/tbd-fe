@@ -19,7 +19,7 @@
     flex-direction: row;
     h3 {
         font-size: 24px;
-        font-weight: $large-text-weight;
+        font-weight: 900;
     }
 }
 
@@ -144,3 +144,16 @@
     }
 }
 
+.detail-snippet {
+    margin: 10px 20px;
+    letter-spacing: 0px;
+}
+
+.detail-city-summary {
+    margin: 10px 20px;
+    letter-spacing: 0px;
+}
+
+.detail-teleport-score {
+    font-weight: 900;
+}
