@@ -38,6 +38,14 @@ exports[`App should match snapshot 1`] = `
       path="/job/:id"
       render={[Function]}
     />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/404"
+    />
+    <Route
+      render={[Function]}
+    />
   </div>
 </Switch>
 `;

@@ -1,0 +1,25 @@
+.not-found {
+    background-color: white;
+    box-sizing: border-box;
+    height: 480px;
+    margin: auto;
+    padding: 32px;
+    text-align: center;
+    width: 480px;
+    img {
+        margin: 30px auto 80px;
+        width: 180px;
+    }
+    .form-link {
+        color: black;
+        display: block;
+        font-size: 24px;
+        font-weight: 100;
+    }
+    .form-link:hover {
+        color: #8ED7FE;
+    }
+    .form-link:active {
+        color: black;
+    }
+}
