@@ -50,6 +50,10 @@ Job Listings:
 
 <img width="1440" alt="Screen Shot 2019-09-11 at 9 36 41 AM" src="https://user-images.githubusercontent.com/36940278/64712411-af2cfa00-d4aa-11e9-9ba1-fe67351ea172.png">
 
+Testing:
+
+<img width="885" alt="Screen Shot 2019-09-12 at 11 39 20 AM" src="https://user-images.githubusercontent.com/36940278/64807423-ad376980-d584-11e9-8eea-7ccce370c53b.png">
+
 ## Emphasis of the Project
 
 Further knowledge on the following technologies/principles:
